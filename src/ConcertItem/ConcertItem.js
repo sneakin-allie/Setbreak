@@ -12,7 +12,7 @@ class ConcertItem extends React.Component {
                     <p>Memorable songs: {this.props.concert.songs}</p>
                     <p>Notes: {this.props.concert.notes}</p>
                     <button
-                        // onClick={(e) => this.handleEditConcert(e)} and redirect to form
+                        // onClick={this.props.history.push("/edit")}
                         type="button">
                         Edit
                     </button>

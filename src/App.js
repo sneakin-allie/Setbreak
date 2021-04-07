@@ -7,6 +7,7 @@ import Header from './Header/Header';
 import Footer from './Footer/Footer';
 import AddConcertForm from './AddConcertForm/AddConcertForm';
 import StatsPage from './StatsPage/StatsPage';
+import EditConcertForm from './EditConcertForm/EditConcertForm'
 import './App.css';
 
 class App extends React.Component {
@@ -38,16 +39,16 @@ class App extends React.Component {
     })
   }
 
-  // this needs to be fixed
   handleDeleteConcert = (concert) => {
-    console.log(concert);
     const updatedConcerts = this.state.concerts.filter(item => item.id !== concert.id);
     this.setState({
         concerts: updatedConcerts
     })
   }
 
-  // need to handleEditConcert and redirect to form
+  handleEditConcert = (concert) => {
+    
+  }
 
   render() {
     return (
@@ -76,7 +77,7 @@ class App extends React.Component {
                 {...routeProps} 
                 concerts={this.state.concerts} 
                 onDeleteConcert={this.handleDeleteConcert}
-                // onEditConcert={this.handleEditConcert}
+                onEditConcert={this.handleEditConcert}
               />
             } 
           />
@@ -86,6 +87,15 @@ class App extends React.Component {
               <AddConcertForm 
                 {...routeProps}
                 onAddConcert={this.handleAddConcert}
+              />
+            } 
+          />
+          <Route 
+            path="/edit" 
+            render={(routeProps) => 
+              <EditConcertForm 
+                {...routeProps}
+                // onUpdateConcert={this.handleUpdateConcert}
               />
             } 
           />

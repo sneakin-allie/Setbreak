@@ -13,6 +13,7 @@ class ConcertList extends React.Component {
                                 key={i}
                                 concert={concert}
                                 onDeleteConcert={this.props.onDeleteConcert}
+                                onEditConcert={this.props.onEditConcert}
                             />
                         )}
                     </ul>

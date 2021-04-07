@@ -1,6 +1,6 @@
 import React from "react";
 
-class AddConcertForm extends React.Component {
+class EditConcertForm extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -13,50 +13,49 @@ class AddConcertForm extends React.Component {
         }
     }
 
-    handleDate = (e) => {
-        const newDate = e.target.value;
+    handleEditDate = (e) => {
+        const updatedDate = e.target.value;
         this.setState({
-            date: newDate
+            date: updatedDate
         })
     }
 
-    handleArtist = (e) => {
-        const newArtist = e.target.value;
+    handleEditArtist = (e) => {
+        const updatedArtist = e.target.value;
         this.setState({
-            artist: newArtist
+            artist: updatedArtist
         })
     }
 
-    handleVenue = (e) => {
-        const newVenue = e.target.value;
+    handleEditVenue = (e) => {
+        const updatedVenue = e.target.value;
         this.setState({
-            venue: newVenue
+            venue: updatedVenue
         })
     }
 
-    handleSongs = (e) => {
-        const newSongs = e.target.value;
+    handleEditSongs = (e) => {
+        const updatedSongs = e.target.value;
         this.setState({
-            songs: newSongs
+            songs: updatedSongs
         })
     }
 
-    handleNotes = (e) => {
-        const newNotes = e.target.value;
+    handleEditNotes = (e) => {
+        const updatedNotes = e.target.value;
         this.setState({
-            notes: newNotes
+            notes: updatedNotes
         })
     }
 
-    // eventually remove this to automatically set an id so user doesn't have to
-    handleId = (e) => {
-        const newId = e.target.value;
+    handleEditId = (e) => {
+        const updatedId = e.target.value;
         this.setState({
-            id: newId
+            id: updatedId
         })
     }
 
-    handleSubmitConcert = (e) => {
+    handleUpdateConcert = (e) => {
         e.preventDefault();
         this.props.onAddConcert(this.state)
         this.props.history.push("/list")
@@ -64,15 +63,15 @@ class AddConcertForm extends React.Component {
 
     render() {
         return (
-            <div className="add-new-concert">
-                <h3>Add New Concert</h3>
-                    <form className="add-new-concert-form" onSubmit={(e) => this.handleSubmitConcert(e)}>
+            <div className="edit-concert">
+                <h3>Edit Concert</h3>
+                    <form className="edit-concert-form" onSubmit={(e) => this.handleUpdateConcert(e)}>
                         <label htmlFor="date">Date:</label>
                         <input 
                             type="date" 
                             id="date" 
                             name="date"
-                            onChange={(e) => this.handleDate(e)} 
+                            onChange={(e) => this.handleEditDate(e)} 
                         />
                         <br />
                         <label htmlFor="artist">Artist:</label>
@@ -80,7 +79,7 @@ class AddConcertForm extends React.Component {
                             type="text" 
                             id="artist" 
                             name="artist" 
-                            onChange={(e) => this.handleArtist(e)}
+                            onChange={(e) => this.handleEditArtist(e)}
                         />
                         <br />
                         <label htmlFor="venue">Venue:</label>
@@ -88,7 +87,7 @@ class AddConcertForm extends React.Component {
                             type="text" 
                             id="venue" 
                             name="venue"
-                            onChange={(e) => this.handleVenue(e)} 
+                            onChange={(e) => this.handleEditVenue(e)} 
                         />
                         <br />
                         <label htmlFor="songs">Memorable songs:</label>
@@ -96,14 +95,14 @@ class AddConcertForm extends React.Component {
                             type="text" 
                             id="songs" 
                             name="songs" 
-                            onChange={(e) => this.handleSongs(e)}
+                            onChange={(e) => this.handleEditSongs(e)}
                         />
                         <br />
                         <label htmlFor="notes">Notes:</label>
                         <textarea 
                             id="notes" 
                             name="notes"
-                            onChange={(e) => this.handleNotes(e)}
+                            onChange={(e) => this.handleEditNotes(e)}
                         >
                         </textarea>
                         <br />
@@ -112,14 +111,14 @@ class AddConcertForm extends React.Component {
                             type="text" 
                             id="concertId" 
                             name="concertId" 
-                            onChange={(e) => this.handleId(e)}
+                            onChange={(e) => this.handleEditId(e)}
                         />
                         <br />
-                        <button type="submit">Add concert</button>
+                        <button type="submit">Update concert</button>
                     </form>
             </div>
         );
     }
 }
 
-export default AddConcertForm;
+export default EditConcertForm;
