@@ -6,6 +6,7 @@ import Nav from './Nav/Nav';
 import Header from './Header/Header';
 import Footer from './Footer/Footer';
 import AddConcertForm from './AddConcertForm/AddConcertForm';
+import StatsPage from './StatsPage/StatsPage';
 import './App.css';
 
 class App extends React.Component {
@@ -24,10 +25,8 @@ class App extends React.Component {
   */
 
   handleSignUp = (user) => {
-    const currentUser = this.state.userInfo;
     this.setState({
-      concerts: this.state.concerts,
-      userInfo: currentUser.create(user)
+      userInfo: user
     })
   }
 
@@ -38,14 +37,13 @@ class App extends React.Component {
         userInfo: this.state.userInfo
     })
   }
-  // need to redirect to collection after adding, or at least give confirmation
 
   // this needs to be fixed
   handleDeleteConcert = (concert) => {
-    const updatedConcerts = this.state.concerts.filter(item => item !== concert);
+    console.log(concert);
+    const updatedConcerts = this.state.concerts.filter(item => item.id !== concert.id);
     this.setState({
-        concerts: updatedConcerts,
-        userInfo: this.state.userInfo
+        concerts: updatedConcerts
     })
   }
 
@@ -71,15 +69,6 @@ class App extends React.Component {
               />
             } 
           />
-          <Route 
-            path="/new" 
-            render={(routeProps) => 
-              <AddConcertForm 
-                {...routeProps}
-                onAddConcert={this.handleAddConcert}
-              />
-            } 
-          />
           <Route
             path="/list"
             render={(routeProps) => 
@@ -90,6 +79,23 @@ class App extends React.Component {
                 // onEditConcert={this.handleEditConcert}
               />
             } 
+          />
+          <Route 
+            path="/new" 
+            render={(routeProps) => 
+              <AddConcertForm 
+                {...routeProps}
+                onAddConcert={this.handleAddConcert}
+              />
+            } 
+          />
+          <Route
+            path="/stats"
+            render={(routeProps) =>
+              <StatsPage
+                {...routeProps}
+              />
+            }
           />
         </main>
         <footer>

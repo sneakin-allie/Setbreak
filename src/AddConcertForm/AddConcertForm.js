@@ -8,7 +8,8 @@ class AddConcertForm extends React.Component {
             artist: "",
             venue: "",
             songs: "",
-            notes: ""
+            notes: "",
+            id: ""
         }
     }
 
@@ -50,6 +51,14 @@ class AddConcertForm extends React.Component {
     handleSubmitConcert = (e) => {
         e.preventDefault();
         this.props.onAddConcert(this.state)
+        this.props.history.push("/list")
+    }
+
+    handleId = (e) => {
+        const newId = e.target.value;
+        this.setState({
+            id: newId
+        })
     }
 
     render() {
@@ -96,6 +105,15 @@ class AddConcertForm extends React.Component {
                             onChange={(e) => this.handleNotes(e)}
                         >
                         </textarea>
+                        
+                        <br />
+                        <label htmlFor="concert_id">Id:</label>
+                        <input 
+                            type="text" 
+                            id="concert_id" 
+                            name="concert_id" 
+                            onChange={(e) => this.handleId(e)}
+                        />
                         <br />
                         <button type="submit">Add concert</button>
                     </form>

@@ -17,7 +17,7 @@ class ConcertItem extends React.Component {
                         Edit
                     </button>
                     <button 
-                        onClick={(e) => this.handleDeleteConcert(e)}
+                        onClick={() => this.props.onDeleteConcert(this.props.concert)}
                         type="button">
                         Delete
                     </button>

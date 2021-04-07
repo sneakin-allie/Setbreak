@@ -12,18 +12,13 @@ class ConcertList extends React.Component {
                             <ConcertItem
                                 key={i}
                                 concert={concert}
-                                onDeleteConcert={this.props.handleDeleteConcert}
+                                onDeleteConcert={this.props.onDeleteConcert}
                             />
                         )}
                     </ul>
             </div>
         );
     }
-}
-
-ConcertList.defaultProps = {
-    // do I need to use defaultProps?
-    items: []
 }
 
 export default ConcertList;

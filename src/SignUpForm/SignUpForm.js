@@ -39,7 +39,7 @@ class SignUpForm extends React.Component {
         })
     }
 
-    handleSubmitSignUp = (e) => {
+    handleSubmit = (e) => {
         e.preventDefault();
         this.props.onSignUp(this.state)
     }
@@ -48,7 +48,7 @@ class SignUpForm extends React.Component {
         return (
             <div className="signup">
                 <h3>Sign up now</h3>
-                    <form className="signup-form" onSubmit={(e) => this.handleSubmitSignUp(e)}>
+                    <form className="signup-form" onSubmit={(e) => this.handleSubmit(e)}>
                         <label htmlFor="first-name">First name:</label>
                         <input 
                             type="text" 
