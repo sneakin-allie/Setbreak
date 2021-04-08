@@ -55,9 +55,9 @@ class EditConcertForm extends React.Component {
         })
     }
 
-    handleUpdateConcert = (e) => {
+    handleUpdate = (e) => {
         e.preventDefault();
-        this.props.onAddConcert(this.state)
+        this.props.onEditConcert(this.state)
         this.props.history.push("/list")
     }
 
@@ -65,12 +65,13 @@ class EditConcertForm extends React.Component {
         return (
             <div className="edit-concert">
                 <h3>Edit Concert</h3>
-                    <form className="edit-concert-form" onSubmit={(e) => this.handleUpdateConcert(e)}>
+                    <form className="edit-concert-form" onSubmit={(e) => this.handleUpdate(e)}>
                         <label htmlFor="date">Date:</label>
                         <input 
                             type="date" 
                             id="date" 
                             name="date"
+                            value={this.state.date}
                             onChange={(e) => this.handleEditDate(e)} 
                         />
                         <br />
@@ -79,6 +80,7 @@ class EditConcertForm extends React.Component {
                             type="text" 
                             id="artist" 
                             name="artist" 
+                            value={this.state.artist}
                             onChange={(e) => this.handleEditArtist(e)}
                         />
                         <br />
@@ -87,6 +89,7 @@ class EditConcertForm extends React.Component {
                             type="text" 
                             id="venue" 
                             name="venue"
+                            value={this.state.venue}
                             onChange={(e) => this.handleEditVenue(e)} 
                         />
                         <br />
@@ -95,6 +98,7 @@ class EditConcertForm extends React.Component {
                             type="text" 
                             id="songs" 
                             name="songs" 
+                            value={this.state.songs}
                             onChange={(e) => this.handleEditSongs(e)}
                         />
                         <br />
@@ -102,6 +106,7 @@ class EditConcertForm extends React.Component {
                         <textarea 
                             id="notes" 
                             name="notes"
+                            value={this.state.notes}
                             onChange={(e) => this.handleEditNotes(e)}
                         >
                         </textarea>
@@ -114,7 +119,7 @@ class EditConcertForm extends React.Component {
                             onChange={(e) => this.handleEditId(e)}
                         />
                         <br />
-                        <button type="submit">Update concert</button>
+                        <button type="submit">Update</button>
                     </form>
             </div>
         );

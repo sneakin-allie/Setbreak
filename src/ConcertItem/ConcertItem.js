@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './ConcertItem.css';
 
 class ConcertItem extends React.Component {
@@ -11,14 +12,17 @@ class ConcertItem extends React.Component {
                     <p>Venue: {this.props.concert.venue}</p>
                     <p>Memorable songs: {this.props.concert.songs}</p>
                     <p>Notes: {this.props.concert.notes}</p>
-                    <button
-                        // onClick={this.props.history.push("/edit")}
-                        type="button">
-                        Edit
-                    </button>
+                    <Link to="/edit">
+                        <button
+                            // onEditConcert={this.props.onEditConcert} 
+                            type="button">
+                            Edit
+                        </button>
+                    </Link>
                     <button 
                         onClick={() => this.props.onDeleteConcert(this.props.concert)}
-                        type="button">
+                        type="button"
+                    >
                         Delete
                     </button>
                 </li>  

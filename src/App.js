@@ -46,9 +46,15 @@ class App extends React.Component {
     })
   }
 
+  // this needs to be fixed
+  /*
   handleEditConcert = (concert) => {
-    
+    const editedConcerts = this.state.concerts.filter(item => item.id == concert.id);
+    this.setState({
+      concerts: editedConcerts
+    })
   }
+  */
 
   render() {
     return (
@@ -77,7 +83,7 @@ class App extends React.Component {
                 {...routeProps} 
                 concerts={this.state.concerts} 
                 onDeleteConcert={this.handleDeleteConcert}
-                onEditConcert={this.handleEditConcert}
+                // onEditConcert={this.handleEditConcert}
               />
             } 
           />
