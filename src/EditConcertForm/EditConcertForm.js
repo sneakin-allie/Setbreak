@@ -71,7 +71,7 @@ class EditConcertForm extends React.Component {
                             type="date" 
                             id="date" 
                             name="date"
-                            value={this.state.date}
+                            ref={this.state.date}
                             onChange={(e) => this.handleEditDate(e)} 
                         />
                         <br />
@@ -80,7 +80,7 @@ class EditConcertForm extends React.Component {
                             type="text" 
                             id="artist" 
                             name="artist" 
-                            value={this.state.artist}
+                            ref={this.state.artist}
                             onChange={(e) => this.handleEditArtist(e)}
                         />
                         <br />
@@ -89,7 +89,7 @@ class EditConcertForm extends React.Component {
                             type="text" 
                             id="venue" 
                             name="venue"
-                            value={this.state.venue}
+                            ref={this.state.venue}
                             onChange={(e) => this.handleEditVenue(e)} 
                         />
                         <br />
@@ -98,7 +98,7 @@ class EditConcertForm extends React.Component {
                             type="text" 
                             id="songs" 
                             name="songs" 
-                            value={this.state.songs}
+                            ref={this.state.songs}
                             onChange={(e) => this.handleEditSongs(e)}
                         />
                         <br />
@@ -106,7 +106,7 @@ class EditConcertForm extends React.Component {
                         <textarea 
                             id="notes" 
                             name="notes"
-                            value={this.state.notes}
+                            ref={this.state.notes}
                             onChange={(e) => this.handleEditNotes(e)}
                         >
                         </textarea>
