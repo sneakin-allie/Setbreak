@@ -48,7 +48,7 @@ class AddConcertForm extends React.Component {
         })
     }
 
-    // eventually remove this to automatically set an id so user doesn't have to
+    // eventually remove this to automatically set an id so the user doesn't have to
     handleId = (e) => {
         const newId = e.target.value;
         this.setState({
@@ -56,7 +56,7 @@ class AddConcertForm extends React.Component {
         })
     }
 
-    handleSubmitConcert = (e) => {
+    handleSubmitNewConcert = (e) => {
         e.preventDefault();
         this.props.onAddConcert(this.state)
         this.props.history.push("/list")
@@ -66,7 +66,7 @@ class AddConcertForm extends React.Component {
         return (
             <div className="add-new-concert">
                 <h3>Add New Concert</h3>
-                    <form className="add-new-concert-form" onSubmit={(e) => this.handleSubmitConcert(e)}>
+                    <form className="add-new-concert-form" onSubmit={(e) => this.handleSubmitNewConcert(e)}>
                         <label htmlFor="date">Date:</label>
                         <input 
                             type="date" 
@@ -92,7 +92,7 @@ class AddConcertForm extends React.Component {
                             onChange={(e) => this.handleVenue(e)} 
                         />
                         <br />
-                        <label htmlFor="songs">Memorable songs:</label>
+                        <label htmlFor="songs">Songs:</label>
                         <input 
                             type="text" 
                             id="songs" 

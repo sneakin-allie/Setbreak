@@ -2,77 +2,41 @@ import React from "react";
 
 class EditConcertForm extends React.Component {
     constructor(props) {
-        super(props)
-        this.state = {
-            date: "",
-            artist: "",
-            venue: "",
-            songs: "",
-            notes: "",
-            id: ""
-        }
+        super(props);
+        this.date = React.createRef();
+        this.artist = React.createRef();
+        this.venue = React.createRef();
+        this.songs = React.createRef();
+        this.notes = React.createRef();
+        this.id = React.createRef();
     }
 
-    handleEditDate = (e) => {
-        const updatedDate = e.target.value;
-        this.setState({
-            date: updatedDate
-        })
-    }
-
-    handleEditArtist = (e) => {
-        const updatedArtist = e.target.value;
-        this.setState({
-            artist: updatedArtist
-        })
-    }
-
-    handleEditVenue = (e) => {
-        const updatedVenue = e.target.value;
-        this.setState({
-            venue: updatedVenue
-        })
-    }
-
-    handleEditSongs = (e) => {
-        const updatedSongs = e.target.value;
-        this.setState({
-            songs: updatedSongs
-        })
-    }
-
-    handleEditNotes = (e) => {
-        const updatedNotes = e.target.value;
-        this.setState({
-            notes: updatedNotes
-        })
-    }
-
-    handleEditId = (e) => {
-        const updatedId = e.target.value;
-        this.setState({
-            id: updatedId
-        })
-    }
-
-    handleUpdate = (e) => {
+    // this handler is working but needs to be completed
+    handleSubmitUpdateConcert = (e) => {
         e.preventDefault();
-        this.props.onEditConcert(this.state)
+        this.props.onUpdateConcert(this.state)
         this.props.history.push("/list")
     }
 
     render() {
+        const id = this.props.match.params.id;
+        const currentConcert = this.props.concerts.find((concert) => {
+            if (concert.id == id) {
+                return concert;
+            }
+        })
+
         return (
             <div className="edit-concert">
                 <h3>Edit Concert</h3>
-                    <form className="edit-concert-form" onSubmit={(e) => this.handleUpdate(e)}>
+                    <form className="edit-concert-form" onSubmit={(e) => this.handleSubmitUpdateConcert(e)}>
                         <label htmlFor="date">Date:</label>
                         <input 
                             type="date" 
                             id="date" 
                             name="date"
-                            ref={this.state.date}
-                            onChange={(e) => this.handleEditDate(e)} 
+                            defaultValue={currentConcert.date}
+                            ref={this.date}
                         />
                         <br />
                         <label htmlFor="artist">Artist:</label>
@@ -80,8 +44,8 @@ class EditConcertForm extends React.Component {
                             type="text" 
                             id="artist" 
                             name="artist" 
-                            ref={this.state.artist}
-                            onChange={(e) => this.handleEditArtist(e)}
+                            defaultValue={currentConcert.artist}
+                            ref={this.artist}
                         />
                         <br />
                         <label htmlFor="venue">Venue:</label>
@@ -89,25 +53,25 @@ class EditConcertForm extends React.Component {
                             type="text" 
                             id="venue" 
                             name="venue"
-                            ref={this.state.venue}
-                            onChange={(e) => this.handleEditVenue(e)} 
+                            defaultValue={currentConcert.venue}
+                            ref={this.venue} 
                         />
                         <br />
-                        <label htmlFor="songs">Memorable songs:</label>
+                        <label htmlFor="songs">Songs:</label>
                         <input 
                             type="text" 
                             id="songs" 
                             name="songs" 
-                            ref={this.state.songs}
-                            onChange={(e) => this.handleEditSongs(e)}
+                            defaultValue={currentConcert.songs}
+                            ref={this.songs}
                         />
                         <br />
                         <label htmlFor="notes">Notes:</label>
                         <textarea 
                             id="notes" 
                             name="notes"
-                            ref={this.state.notes}
-                            onChange={(e) => this.handleEditNotes(e)}
+                            defaultValue={currentConcert.notes}
+                            ref={this.notes}
                         >
                         </textarea>
                         <br />
@@ -116,7 +80,8 @@ class EditConcertForm extends React.Component {
                             type="text" 
                             id="concertId" 
                             name="concertId" 
-                            onChange={(e) => this.handleEditId(e)}
+                            defaultValue={currentConcert.id}
+                            ref={this.id}
                         />
                         <br />
                         <button type="submit">Update</button>

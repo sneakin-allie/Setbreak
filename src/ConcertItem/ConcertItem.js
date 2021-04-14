@@ -12,7 +12,7 @@ class ConcertItem extends React.Component {
                     <p>Venue: {this.props.concert.venue}</p>
                     <p>Memorable songs: {this.props.concert.songs}</p>
                     <p>Notes: {this.props.concert.notes}</p>
-                    <Link to="/edit">
+                    <Link to={`/edit/${this.props.concert.id}`}>
                         <button
                             // onEditConcert={this.props.onEditConcert} 
                             type="button">

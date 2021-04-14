@@ -12,7 +12,7 @@ import './App.css';
 
 class App extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       concerts: [],
       userInfo: {}
@@ -34,8 +34,7 @@ class App extends React.Component {
   handleAddConcert = (concert) => {
     const currentConcerts = this.state.concerts;
     this.setState({
-        concerts: currentConcerts.concat(concert),
-        userInfo: this.state.userInfo
+        concerts: currentConcerts.concat(concert)
     })
   }
 
@@ -47,14 +46,23 @@ class App extends React.Component {
   }
 
   // this needs to be fixed
-  /*
-  handleEditConcert = (concert) => {
-    const editedConcerts = this.state.concerts.filter(item => item.id == concert.id);
+  handleUpdateConcert = (concert) => {
+    // get array of concerts from state and put it in a new variable
+    const editedConcerts = this.state.concerts;
+    // loop through array and find concert to update by id
+    for (let i = 0; i < editedConcerts.length; i++) {
+      if (editedConcerts[i].id == concert.id) {
+        // update the index
+        editedConcerts[i] = concert
+        console.log(concert);
+      }
+      return editedConcerts;
+    }
+    // update state with new array (outside of loop)
     this.setState({
       concerts: editedConcerts
     })
   }
-  */
 
   render() {
     return (
@@ -83,7 +91,6 @@ class App extends React.Component {
                 {...routeProps} 
                 concerts={this.state.concerts} 
                 onDeleteConcert={this.handleDeleteConcert}
-                // onEditConcert={this.handleEditConcert}
               />
             } 
           />
@@ -97,11 +104,12 @@ class App extends React.Component {
             } 
           />
           <Route 
-            path="/edit" 
+            path="/edit/:id" 
             render={(routeProps) => 
               <EditConcertForm 
                 {...routeProps}
-                // onUpdateConcert={this.handleUpdateConcert}
+                concerts={this.state.concerts} 
+                onUpdateConcert={this.handleUpdateConcert}
               />
             } 
           />
