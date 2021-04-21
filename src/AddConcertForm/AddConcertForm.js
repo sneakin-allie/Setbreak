@@ -72,7 +72,6 @@ class AddConcertForm extends React.Component {
                             type="date" 
                             id="date" 
                             name="date"
-                            defaultValue={this.state.date}
                             onChange={(e) => this.handleDate(e)} 
                         />
                         <br />

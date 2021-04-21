@@ -10,14 +10,17 @@ class ConcertItem extends React.Component {
                     <p>Date: {this.props.concert.date}</p>
                     <p>Artist: {this.props.concert.artist}</p>
                     <p>Venue: {this.props.concert.venue}</p>
-                    <p>Memorable songs: {this.props.concert.songs}</p>
+                    <p>Songs: {this.props.concert.songs}</p>
                     <p>Notes: {this.props.concert.notes}</p>
-                    <Link to={`/edit/${this.props.concert.id}`}>
-                        <button
-                            // onEditConcert={this.props.onEditConcert} 
-                            type="button">
-                            Edit
-                        </button>
+                    <Link 
+                        to={{
+                            pathname: `/edit/${this.props.concert.id}`
+                        }}
+                    >   
+                            <button 
+                                type="button">
+                                Edit
+                            </button>
                     </Link>
                     <button 
                         onClick={() => this.props.onDeleteConcert(this.props.concert)}

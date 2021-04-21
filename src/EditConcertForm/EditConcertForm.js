@@ -3,25 +3,36 @@ import React from "react";
 class EditConcertForm extends React.Component {
     constructor(props) {
         super(props);
+
         this.date = React.createRef();
         this.artist = React.createRef();
         this.venue = React.createRef();
         this.songs = React.createRef();
         this.notes = React.createRef();
-        this.id = React.createRef();
     }
 
-    // this handler is working but needs to be completed
+    // this handler is being called but needs to be fixed
     handleSubmitUpdateConcert = (e) => {
         e.preventDefault();
-        this.props.onUpdateConcert(this.state)
+        console.log("handleSubmitUpdateConcert called");
+
+        const updatedConcert = {
+            date: this.date.current.value,
+            artist: this.artist.current.value,
+            venue: this.venue.current.value,
+            songs: this.songs.current.value,
+            notes: this.notes.current.value,
+            id: this.props.match.params.id
+        };
+
+        this.props.onUpdateConcert(updatedConcert);
         this.props.history.push("/list")
     }
 
     render() {
         const id = this.props.match.params.id;
         const currentConcert = this.props.concerts.find((concert) => {
-            if (concert.id == id) {
+            if (concert.id === id) {
                 return concert;
             }
         })
@@ -74,15 +85,6 @@ class EditConcertForm extends React.Component {
                             ref={this.notes}
                         >
                         </textarea>
-                        <br />
-                        <label htmlFor="concert_id">Id:</label>
-                        <input 
-                            type="text" 
-                            id="concertId" 
-                            name="concertId" 
-                            defaultValue={currentConcert.id}
-                            ref={this.id}
-                        />
                         <br />
                         <button type="submit">Update</button>
                     </form>

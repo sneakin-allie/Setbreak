@@ -46,17 +46,17 @@ class App extends React.Component {
   }
 
   // this needs to be fixed
-  handleUpdateConcert = (concert) => {
-    // get array of concerts from state and put it in a new variable
+  handleUpdateConcert = (updatedConcert) => {
+    // get the array of concerts from state and put it in a new variable
+    console.log(updatedConcert);
     const editedConcerts = this.state.concerts;
     // loop through array and find concert to update by id
     for (let i = 0; i < editedConcerts.length; i++) {
-      if (editedConcerts[i].id == concert.id) {
+      console.log(editedConcerts[i].id, updatedConcert.id)
+      if (editedConcerts[i].id === updatedConcert.id) {
         // update the index
-        editedConcerts[i] = concert
-        console.log(concert);
+        editedConcerts[i] = updatedConcert;
       }
-      return editedConcerts;
     }
     // update state with new array (outside of loop)
     this.setState({
