@@ -45,7 +45,6 @@ class App extends React.Component {
     })
   }
 
-  // this needs to be fixed
   handleUpdateConcert = (updatedConcert) => {
     // get the array of concerts from state and put it in a new variable
     console.log(updatedConcert);
