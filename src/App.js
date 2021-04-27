@@ -19,9 +19,15 @@ class App extends React.Component {
     }
   }
 
-  handleSignUp = (user) => {
+  handleSignUp = (newUser) => {
     this.setState({
-      userInfo: user
+      userInfo: newUser
+    })
+  }
+
+  handleLogin = (existingUser) => {
+    this.setState({
+      userInfo: existingUser
     })
   }
 
@@ -60,69 +66,70 @@ class App extends React.Component {
   render() {
     return (
       <BrowserRouter>
-      <div className="App">
-        <nav>
-          <Route 
-            path="/"
-            component={Nav}
-         />
-        </nav>
-        <header>
-          <Header />
-        </header>
-        <main>
-          <Route 
-            exact path="/" 
-            component={(routeProps) => 
-              <LandingPage 
-                {...routeProps} 
-                userInfo={this.state.userInfo}
-                onSignUp={this.handleSignUp}
-              />
-            } 
+        <div className="App">
+          <nav>
+            <Route 
+              path="/"
+              component={Nav}
           />
-          <Route
-            path="/list"
-            render={(routeProps) => 
-              <ConcertList 
-                {...routeProps} 
-                concerts={this.state.concerts} 
-                onDeleteConcert={this.handleDeleteConcert}
-              />
-            } 
-          />
-          <Route 
-            path="/new" 
-            render={(routeProps) => 
-              <AddConcertForm 
-                {...routeProps}
-                onAddConcert={this.handleAddConcert}
-              />
-            } 
-          />
-          <Route 
-            path="/edit/:id" 
-            render={(routeProps) => 
-              <EditConcertForm 
-                {...routeProps}
-                concerts={this.state.concerts} 
-                onUpdateConcert={this.handleUpdateConcert}
-              />
-            } 
-          />
-          <Route
-            path="/stats"
-            render={(routeProps) =>
-              <StatsPage
-                {...routeProps}
-              />
-            }
-          />
-        </main>
-        <footer>
-          <Footer />
-        </footer>
-      </div>
+          </nav>
+          <header>
+            <Header />
+          </header>
+          <main>
+            <Route 
+              exact path="/" 
+              component={(routeProps) => 
+                <LandingPage 
+                  {...routeProps} 
+                  userInfo={this.state.userInfo}
+                  onSignUp={this.handleSignUp}
+                  onLogin={this.handleLogin}
+                />
+              } 
+            />
+            <Route
+              path="/list"
+              render={(routeProps) => 
+                <ConcertList 
+                  {...routeProps} 
+                  concerts={this.state.concerts} 
+                  onDeleteConcert={this.handleDeleteConcert}
+                />
+              } 
+            />
+            <Route 
+              path="/new" 
+              render={(routeProps) => 
+                <AddConcertForm 
+                  {...routeProps}
+                  onAddConcert={this.handleAddConcert}
+                />
+              } 
+            />
+            <Route 
+              path="/edit/:id" 
+              render={(routeProps) => 
+                <EditConcertForm 
+                  {...routeProps}
+                  concerts={this.state.concerts} 
+                  onUpdateConcert={this.handleUpdateConcert}
+                />
+              } 
+            />
+            <Route
+              path="/stats"
+              render={(routeProps) =>
+                <StatsPage
+                  {...routeProps}
+                />
+              }
+            />
+          </main>
+          <footer>
+            <Footer />
+          </footer>
+        </div>
       </BrowserRouter>
     );
   }

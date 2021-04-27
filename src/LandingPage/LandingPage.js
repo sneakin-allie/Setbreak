@@ -1,4 +1,5 @@
 import React from "react";
+import LoginForm from "../LoginForm/LoginForm";
 import SignUpForm from '../SignUpForm/SignUpForm';
 
 class LandingPage extends React.Component {
@@ -18,6 +19,8 @@ class LandingPage extends React.Component {
                 <p>Placeholder for screen shot</p>
                 <br />
                 <SignUpForm onSignUp={this.props.onSignUp}/>
+                <br />
+                <LoginForm />
             </div>
         );
     }
