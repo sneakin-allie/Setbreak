@@ -31,12 +31,9 @@ class EditConcertForm extends React.Component {
 
     render() {
         const id = this.props.match.params.id;
-        const currentConcert = this.props.concerts.find((concert) => {
-            if (concert.id === id) {
-                return concert;
-            }
-            
-        })
+        const currentConcert = this.props.concerts.find((concert) => 
+            (concert.id === id)
+        )
 
         return (
             <div className="edit-concert">
