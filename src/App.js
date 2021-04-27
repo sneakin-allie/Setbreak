@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, BrowserRouter } from 'react-router-dom';
 import ConcertList from './ConcertList/ConcertList';
 import LandingPage from './LandingPage/LandingPage';
 import Nav from './Nav/Nav';
@@ -18,12 +18,6 @@ class App extends React.Component {
       userInfo: {}
     }
   }
-
-  /*
-  componentDidMount() {
-    API call will go here
-  }
-  */
 
   handleSignUp = (user) => {
     this.setState({
@@ -65,9 +59,13 @@ class App extends React.Component {
 
   render() {
     return (
+      <BrowserRouter>
       <div className="App">
         <nav>
-          <Nav />
+          <Route 
+            path="/"
+            component={Nav}
+         />
         </nav>
         <header>
           <Header />
@@ -125,6 +123,7 @@ class App extends React.Component {
           <Footer />
         </footer>
       </div>
+      </BrowserRouter>
     );
   }
 }

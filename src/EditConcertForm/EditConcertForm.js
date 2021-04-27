@@ -35,6 +35,7 @@ class EditConcertForm extends React.Component {
             if (concert.id === id) {
                 return concert;
             }
+            
         })
 
         return (
