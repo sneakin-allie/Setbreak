@@ -34,8 +34,14 @@ class App extends React.Component {
   }
 
   handleDisplayConcerts = results => {
+    // sorts & displays concerts starting with the most recent
+    const sortedConcerts = results.sort(function(a, b) {
+      var c = new Date(a.date);
+      var d = new Date(b.date);
+      return d-c;
+    });
     this.setState({
-      concerts: results
+      concerts: sortedConcerts
     })
   }
 
