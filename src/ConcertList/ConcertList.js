@@ -1,8 +1,36 @@
 import React from 'react';
 import ConcertItem from '../ConcertItem/ConcertItem';
+import config from '../config';
 import './ConcertList.css';
+import { withRouter } from 'react-router-dom';
 
 class ConcertList extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            concerts: []
+        }
+    }
+
+    componentDidMount() {
+        fetch(config.API_ENDPOINT + `/api/concerts/${this.props.userInfo.email}`, {
+            method: 'GET',
+            headers: {
+                'content-type': 'application/json'
+            }
+        })
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error(res.status)
+                }
+                return res.json()
+            })
+            .then((results) => {
+                this.props.onDisplayConcerts(results)
+            })
+            .catch(error => this.setState({ error }))
+    }
+
     render() {
         return (
             <div className="concerts">
@@ -12,8 +40,10 @@ class ConcertList extends React.Component {
                             <ConcertItem
                                 key={i}
                                 concert={concert}
-                                onDeleteConcert={this.props.onDeleteConcert}
-                                onUpdateConcert={this.props.onUpdateConcert}
+                                onUpdateConcert={this.props.handleUpdateConcert}
+                                onDeleteConcert={this.props.handleDeleteConcert}
+                                concerts={this.state.concerts}
+                                userInfo={this.state.userInfo}
                             />
                         )}
                     </ul>
@@ -22,4 +52,4 @@ class ConcertList extends React.Component {
     }
 }
 
-export default ConcertList;
+export default withRouter(ConcertList);

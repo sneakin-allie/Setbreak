@@ -1,4 +1,6 @@
-import React from "react";
+import React from 'react';
+import config from '../config';
+import { withRouter } from 'react-router-dom';
 
 class EditConcertForm extends React.Component {
     constructor(props) {
@@ -11,39 +13,102 @@ class EditConcertForm extends React.Component {
         this.notes = React.createRef();
     }
 
-    // this handler is being called but needs to be fixed
-    handleSubmitUpdateConcert = (e) => {
-        e.preventDefault();
-        console.log("handleSubmitUpdateConcert called");
+    componentDidMount() {
+        const { id } = this.props.match.params;
+        fetch(config.API_ENDPOINT + `/api/concerts/${id}`, {
+            method: 'GET',
+            headers: {
+                'content-type': 'application/json'
+            }
+        })
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error(res.status)
+                }
+                return res.json()
+            })
+            .then(results => {
+                this.setState({
+                    date: results.date,
+                    artist: results.artist,
+                    venue: results.venue,
+                    songs: results.songs,
+                    notes: results.notes
+                })
+            })
+            .catch(error => this.setState({ error }))
+    }
 
+    handleUpdate = e => {
+        e.preventDefault();
+        const { id } = this.props.match.params;
         const updatedConcert = {
             date: this.date.current.value,
             artist: this.artist.current.value,
             venue: this.venue.current.value,
             songs: this.songs.current.value,
             notes: this.notes.current.value,
-            id: this.props.match.params.id
+            id
         };
 
-        this.props.onUpdateConcert(updatedConcert);
-        this.props.history.push("/list")
+        fetch(config.API_ENDPOINT + `/api/concerts/${id}`, {
+            method: 'PATCH',
+            body: JSON.stringify(updatedConcert),
+            headers: {
+                'content-type': 'application/json'
+            }
+        })
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error(res.status)
+                }
+                return res.json()
+            })
+            .then(updatedConcert => {
+                this.props.onUpdateConcert(updatedConcert)
+                this.props.history.push("/list")
+            })
+            .catch(error => this.setState({ error }))
+ 
+    }
+    
+    handleDelete = e => {
+        e.preventDefault();
+        const { id } = this.props.match.params;
+        fetch(config.API_ENDPOINT + `/api/concerts/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'content-type': 'application/json'
+            }
+        })
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error(res.status)
+                }
+                return res.json()
+            })
+            .then(this.props.history.push("/list"))
+            // doesn't like this setState on an unmounted component 
+            .catch(error => this.setState({ error }))
     }
 
     render() {
         const id = this.props.match.params.id;
-        const currentConcert = this.props.concerts.find((concert) => 
-            (concert.id === id)
+        const currentConcert = this.props.concerts.find(concert => 
+            (concert.id == id)
         )
 
         return (
             <div className="edit-concert">
                 <h3>Edit Concert</h3>
-                    <form className="edit-concert-form" onSubmit={(e) => this.handleSubmitUpdateConcert(e)}>
+                    <form className="edit-concert-form">
                         <label htmlFor="date">Date:</label>
                         <input 
                             type="date" 
                             id="date" 
                             name="date"
+                            // DATE ISN'T COMING THROUGH ON THE FORM!!! 
+                            // (but appears in the DOM anyway)
                             defaultValue={currentConcert.date}
                             ref={this.date}
                         />
@@ -66,7 +131,7 @@ class EditConcertForm extends React.Component {
                             ref={this.venue} 
                         />
                         <br />
-                        <label htmlFor="songs">Songs:</label>
+                        <label htmlFor="songs">Favorite songs:</label>
                         <input 
                             type="text" 
                             id="songs" 
@@ -80,15 +145,23 @@ class EditConcertForm extends React.Component {
                             id="notes" 
                             name="notes"
                             defaultValue={currentConcert.notes}
-                            ref={this.notes}
-                        >
+                            ref={this.notes}>
                         </textarea>
                         <br />
-                        <button type="submit">Update</button>
+                        <button 
+                            onClick={this.handleUpdate}
+                            type="button">
+                            Update
+                        </button>
+                        <button
+                            onClick={this.handleDelete}
+                            type="button">
+                            Delete
+                        </button>
                     </form>
             </div>
         );
     }
 }
 
-export default EditConcertForm;
+export default withRouter(EditConcertForm);

@@ -1,4 +1,6 @@
 import React from 'react';
+import config from '../config';
+import { withRouter } from 'react-router-dom';
 
 class SignUpForm extends React.Component {
     constructor(props) {
@@ -11,58 +13,61 @@ class SignUpForm extends React.Component {
         }
     }
 
-    handleFirstName = (e) => {
-        const newFirstName = e.target.value;
+    handleChange = e => {
         this.setState({
-            firstName: newFirstName
+            [e.target.name]: e.target.value
         })
     }
 
-    handleLastName = (e) => {
-        const newLastName = e.target.value;
-        this.setState({
-            lastName: newLastName
-        })
-    }
-
-    handleEmail = (e) => {
-        const newEmail = e.target.value;
-        this.setState({
-            email: newEmail
-        })
-    }
-
-    handlePassword = (e) => {
-        const newPassword = e.target.value;
-        this.setState({
-            password: newPassword
-        })
-    }
-
-    handleSubmit = (e) => {
+    handleSubmit = e => {
         e.preventDefault();
-        this.props.onSignUp(this.state)
+        const { firstName, lastName, email, password } = e.target;
+        const newUser = {
+            firstName: firstName.value,
+            lastName: lastName.value,
+            email: email.value,
+            password: password.value
+        }
+
+        fetch(config.API_ENDPOINT + `/api/users`, {
+            method: 'POST',
+            body: JSON.stringify(newUser),
+            headers: {
+                'content-type': 'application/json',
+            }
+        })
+            .then(res => {
+                if(!res.ok) {
+                    throw new Error(res.status)
+                }
+                return res.json()
+            })
+            .then(result => {
+                this.props.onSignUp(result);
+                this.props.history.push('/new')
+            })
+            .catch(error => this.setState({ error }))
     }
 
     render() {
         return (
             <div className="signup">
                 <h3>New User? Sign Up Now!</h3>
-                    <form className="signup-form" onSubmit={(e) => this.handleSubmit(e)}>
+                    <form className="signup-form" onSubmit={this.handleSubmit}>
                         <label htmlFor="first-name">First name:</label>
                         <input 
                             type="text" 
                             id="first-name" 
-                            name="first-name" 
-                            onChange={(e) => this.handleFirstName(e)} 
+                            name="firstName" 
+                            onChange={this.handleChange} 
                         />
                         <br />
                         <label htmlFor="last-name">Last name:</label>
                         <input 
                             type="text" 
                             id="last-name" 
-                            name="last-name"
-                            onChange={(e) => this.handleLastName(e)}
+                            name="lastName"
+                            onChange={this.handleChange}
                         />
                         <br />
                         <label htmlFor="email">Email:</label>
@@ -70,7 +75,7 @@ class SignUpForm extends React.Component {
                             type="text" 
                             id="email" 
                             name="email" 
-                            onChange={(e) => this.handleEmail(e)}
+                            onChange={this.handleChange}
                         />
                         <br />
                         <label htmlFor="password">Password:</label>
@@ -78,7 +83,7 @@ class SignUpForm extends React.Component {
                             type="text" 
                             id="password" 
                             name="password" 
-                            onChange={(e) => this.handlePassword(e)}
+                            onChange={this.handleChange}
                         />
                         <br />
                         <button type="submit">Sign up</button>
@@ -88,4 +93,4 @@ class SignUpForm extends React.Component {
     }
 }
 
-export default SignUpForm;
+export default withRouter(SignUpForm);

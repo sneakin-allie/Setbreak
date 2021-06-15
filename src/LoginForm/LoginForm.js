@@ -1,4 +1,6 @@
 import React from 'react';
+import config from '../config';
+import { withRouter } from 'react-router-dom';
 
 class LoginForm extends React.Component {
     constructor(props) {
@@ -9,37 +11,46 @@ class LoginForm extends React.Component {
         }
     }
 
-    handleEmail = (e) => {
-        const newEmail = e.target.value;
+    handleChange = e => {
         this.setState({
-            email: newEmail
+            [e.target.name]: e.target.value
         })
     }
 
-    handlePassword = (e) => {
-        const newPassword = e.target.value;
-        this.setState({
-            password: newPassword
-        })
-    }
-
-    // onLogin needs to be in app and passed down
-    handleSubmit = (e) => {
+    handleSubmit = e => {
+        // GET for users by email
         e.preventDefault();
-        this.props.onLogin(this.state)
+        fetch(config.API_ENDPOINT + `/api/users/${this.state.email}`, {
+            method: 'GET',
+            headers: {
+                'content-type': 'application/json'
+            }
+        })
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error(res.status)
+                }
+                return res.json()
+            })
+            .then((result) => {
+                this.props.onLogin(result)
+                this.props.history.push("/list")
+            })
+            .catch(error => this.setState({ error }))
+
     }
 
     render() {
         return (
             <div className="login">
                 <h3>Existing User? Log In!</h3>
-                    <form className="login-form" onSubmit={(e) => this.handleSubmit(e)}>
+                    <form className="login-form" onSubmit={this.handleSubmit}>
                         <label htmlFor="email">Email:</label>
                         <input 
                             type="text" 
                             id="email" 
                             name="email" 
-                            onChange={(e) => this.handleEmail(e)}
+                            onChange={this.handleChange}
                         />
                         <br />
                         <label htmlFor="password">Password:</label>
@@ -47,7 +58,7 @@ class LoginForm extends React.Component {
                             type="text" 
                             id="password" 
                             name="password" 
-                            onChange={(e) => this.handlePassword(e)}
+                            onChange={this.handleChange}
                         />
                         <br />
                         <button type="submit">Log in</button>
@@ -57,4 +68,4 @@ class LoginForm extends React.Component {
     }
 }
 
-export default LoginForm;
+export default withRouter(LoginForm);

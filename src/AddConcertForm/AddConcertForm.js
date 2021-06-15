@@ -1,4 +1,6 @@
-import React from "react";
+import React from 'react';
+import config from '../config';
+import { withRouter } from 'react-router-dom';
 
 class AddConcertForm extends React.Component {
     constructor(props) {
@@ -13,66 +15,56 @@ class AddConcertForm extends React.Component {
         }
     }
 
-    handleDate = (e) => {
-        const newDate = e.target.value;
+    handleChange = e => {
         this.setState({
-            date: newDate
+            [e.target.name]: e.target.value
         })
     }
 
-    handleArtist = (e) => {
-        const newArtist = e.target.value;
-        this.setState({
-            artist: newArtist
-        })
-    }
-
-    handleVenue = (e) => {
-        const newVenue = e.target.value;
-        this.setState({
-            venue: newVenue
-        })
-    }
-
-    handleSongs = (e) => {
-        const newSongs = e.target.value;
-        this.setState({
-            songs: newSongs
-        })
-    }
-
-    handleNotes = (e) => {
-        const newNotes = e.target.value;
-        this.setState({
-            notes: newNotes
-        })
-    }
-
-    // eventually remove this to automatically set an id so the user doesn't have to
-    handleId = (e) => {
-        const newId = e.target.value;
-        this.setState({
-            id: newId
-        })
-    }
-
-    handleSubmitNewConcert = (e) => {
+    handleSubmit = e => {
         e.preventDefault();
-        this.props.onAddConcert(this.state)
-        this.props.history.push("/list")
+
+        const { date, artist, venue, songs, notes } = e.target;
+        const newConcert = { 
+            date: date.value, 
+            artist: artist.value, 
+            venue: venue.value, 
+            songs: songs.value, 
+            notes: notes.value,
+            email: this.props.userInfo.email
+        };
+        // POST for a new concert
+        fetch(config.API_ENDPOINT + `/api/concerts`, {
+            method: 'POST',
+            body: JSON.stringify(newConcert),
+            headers: {
+                "content-type": "application/json"
+            }
+        })
+            .then(res => {
+                if(!res.ok) {
+                    throw new Error(res.status)
+                }
+                return res.json()
+            })
+            .then(result => {
+                this.props.onAddConcert(result)
+                this.props.history.push('/list')
+            })
+            .catch(error => this.setState({ error }))
     }
 
     render() {
         return (
             <div className="add-new-concert">
                 <h3>Add New Concert</h3>
-                    <form className="add-new-concert-form" onSubmit={(e) => this.handleSubmitNewConcert(e)}>
+                    <form className="add-new-concert-form" onSubmit={this.handleSubmit}>
                         <label htmlFor="date">Date:</label>
                         <input 
                             type="date" 
                             id="date" 
                             name="date"
-                            onChange={(e) => this.handleDate(e)} 
+                            onChange={this.handleChange} 
                         />
                         <br />
                         <label htmlFor="artist">Artist:</label>
@@ -80,7 +72,7 @@ class AddConcertForm extends React.Component {
                             type="text" 
                             id="artist" 
                             name="artist" 
-                            onChange={(e) => this.handleArtist(e)}
+                            onChange={this.handleChange}
                         />
                         <br />
                         <label htmlFor="venue">Venue:</label>
@@ -88,32 +80,24 @@ class AddConcertForm extends React.Component {
                             type="text" 
                             id="venue" 
                             name="venue"
-                            onChange={(e) => this.handleVenue(e)} 
+                            onChange={this.handleChange} 
                         />
                         <br />
-                        <label htmlFor="songs">Songs:</label>
+                        <label htmlFor="songs">Favorite songs:</label>
                         <input 
                             type="text" 
                             id="songs" 
                             name="songs" 
-                            onChange={(e) => this.handleSongs(e)}
+                            onChange={this.handleChange}
                         />
                         <br />
                         <label htmlFor="notes">Notes:</label>
                         <textarea 
                             id="notes" 
                             name="notes"
-                            onChange={(e) => this.handleNotes(e)}
+                            onChange={this.handleChange}
                         >
                         </textarea>
-                        <br />
-                        <label htmlFor="concert_id">Id:</label>
-                        <input 
-                            type="text" 
-                            id="concertId" 
-                            name="concertId" 
-                            onChange={(e) => this.handleId(e)}
-                        />
                         <br />
                         <button type="submit">Add concert</button>
                     </form>
@@ -122,4 +106,4 @@ class AddConcertForm extends React.Component {
     }
 }
 
-export default AddConcertForm;
+export default withRouter(AddConcertForm);

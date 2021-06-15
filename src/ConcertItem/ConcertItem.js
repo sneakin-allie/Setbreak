@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './ConcertItem.css';
+import { withRouter } from 'react-router-dom';
 
 class ConcertItem extends React.Component {
     render() {
@@ -10,7 +11,7 @@ class ConcertItem extends React.Component {
                     <p>Date: {this.props.concert.date}</p>
                     <p>Artist: {this.props.concert.artist}</p>
                     <p>Venue: {this.props.concert.venue}</p>
-                    <p>Songs: {this.props.concert.songs}</p>
+                    <p>Favorite songs: {this.props.concert.songs}</p>
                     <p>Notes: {this.props.concert.notes}</p>
                     <Link 
                         to={{
@@ -22,16 +23,10 @@ class ConcertItem extends React.Component {
                                 Edit
                             </button>
                     </Link>
-                    <button 
-                        onClick={() => this.props.onDeleteConcert(this.props.concert)}
-                        type="button"
-                    >
-                        Delete
-                    </button>
                 </li>  
             </div>
         );
     }
 }
 
-export default ConcertItem;
+export default withRouter(ConcertItem);
