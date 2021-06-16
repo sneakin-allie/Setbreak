@@ -3,4 +3,4 @@ const obj = {
     // API_ENDPOINT: `http://localhost:8000`,
 }
 
-export default obj
+export default obj;

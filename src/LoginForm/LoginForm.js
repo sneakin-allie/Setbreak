@@ -26,7 +26,6 @@ class LoginForm extends React.Component {
             email: email.value,
             password: password.value
         };
-        console.log("existingUser.password:", existingUser.password)
 
         if (existingUser.email.length === 0) {
             this.setState({
@@ -38,7 +37,7 @@ class LoginForm extends React.Component {
             })
         } else {
 
-            fetch(config.API_ENDPOINT + `/api/users/${this.state.email}`, {
+            fetch(config.obj.API_ENDPOINT + `/api/users/${this.state.email}`, {
                 method: 'POST',
                 body: JSON.stringify( existingUser ),
                 headers: {

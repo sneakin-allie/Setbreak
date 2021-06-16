@@ -15,7 +15,7 @@ class EditConcertForm extends React.Component {
 
     componentDidMount() {
         const { id } = this.props.match.params;
-        fetch(config.API_ENDPOINT + `/api/concerts/${id}`, {
+        fetch(config.obj.API_ENDPOINT + `/api/concerts/${id}`, {
             method: 'GET',
             headers: {
                 'content-type': 'application/json'
@@ -51,7 +51,7 @@ class EditConcertForm extends React.Component {
             id
         };
 
-        fetch(config.API_ENDPOINT + `/api/concerts/${id}`, {
+        fetch(config.obj.API_ENDPOINT + `/api/concerts/${id}`, {
             method: 'PATCH',
             body: JSON.stringify(updatedConcert),
             headers: {
@@ -75,7 +75,7 @@ class EditConcertForm extends React.Component {
     handleDelete = e => {
         e.preventDefault();
         const { id } = this.props.match.params;
-        fetch(config.API_ENDPOINT + `/api/concerts/${id}`, {
+        fetch(config.obj.API_ENDPOINT + `/api/concerts/${id}`, {
             method: 'DELETE',
             headers: {
                 'content-type': 'application/json'
@@ -108,8 +108,6 @@ class EditConcertForm extends React.Component {
                             type="date" 
                             id="date" 
                             name="date"
-                            // DATE ISN'T COMING THROUGH ON THE FORM!!! 
-                            // (but appears in the DOM anyway)
                             defaultValue={currentConcert.date}
                             ref={this.date}
                         />

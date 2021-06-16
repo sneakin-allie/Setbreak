@@ -13,7 +13,7 @@ class ConcertList extends React.Component {
     }
 
     componentDidMount() {
-        fetch(config.API_ENDPOINT + `/api/concerts/${this.props.userInfo.email}`, {
+        fetch(config.obj.API_ENDPOINT + `/api/concerts/${this.props.userInfo.email}`, {
             method: 'GET',
             headers: {
                 'content-type': 'application/json'

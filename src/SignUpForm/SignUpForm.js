@@ -57,7 +57,7 @@ class SignUpForm extends React.Component {
             })
         } else {
 
-            fetch(config.API_ENDPOINT + `/api/users`, {
+            fetch(config.obj.API_ENDPOINT + `/api/users`, {
                 method: 'POST',
                 body: JSON.stringify(newUser),
                 headers: {
