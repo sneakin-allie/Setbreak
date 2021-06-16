@@ -12,7 +12,7 @@ class Nav extends React.Component {
                 <Link to="/list">
                     Concert List
                 </Link>
-                <Link to="/new">
+                <Link to="/add">
                     Add New Concert
                 </Link>
             </div>

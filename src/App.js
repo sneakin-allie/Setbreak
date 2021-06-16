@@ -120,7 +120,7 @@ class App extends React.Component {
               } 
             />
             <Route 
-              path="/new" 
+              path="/add" 
               render={(routeProps) => 
                 <AddConcertForm 
                   {...routeProps}

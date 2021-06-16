@@ -57,7 +57,7 @@ class SignUpForm extends React.Component {
             })
         } else {
 
-            fetch(config.obj.API_ENDPOINT + `/api/users`, {
+            fetch(config.obj.API_ENDPOINT + `/api/users/new`, {
                 method: 'POST',
                 body: JSON.stringify(newUser),
                 headers: {
@@ -72,7 +72,7 @@ class SignUpForm extends React.Component {
                 })
                 .then(result => {
                     this.props.onSignUp(result);
-                    this.props.history.push('/new')
+                    this.props.history.push('/add')
                 })
                 .catch(error => this.setState({ error }))
         }

@@ -11,7 +11,8 @@ class AddConcertForm extends React.Component {
             venue: "",
             songs: "",
             notes: "",
-            id: ""
+            id: "",
+            errorMessage: null
         }
     }
 
@@ -51,7 +52,7 @@ class AddConcertForm extends React.Component {
                 this.props.onAddConcert(result)
                 this.props.history.push('/list')
             })
-            .catch(error => this.setState({ error }))
+            .catch(error => this.setState({ errorMessage: "Invalid credentials" }))
     }
 
     render() {
