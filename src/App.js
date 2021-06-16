@@ -8,7 +8,6 @@ import Footer from './Footer/Footer';
 import AddConcertForm from './AddConcertForm/AddConcertForm';
 import EditConcertForm from './EditConcertForm/EditConcertForm';
 import './App.css';
-import { withRouter } from 'react-router-dom';
 
 class App extends React.Component {
 
@@ -46,7 +45,6 @@ class App extends React.Component {
   }
 
   handleAddConcert = newConcert => {
-    console.log("add new concert was called");
     const oldConcerts = this.state.concerts;
     this.setState({
         concerts: oldConcerts.concat(newConcert)
@@ -71,7 +69,7 @@ class App extends React.Component {
   handleUpdateConcert = updatedConcert => {
     const editedConcerts = this.state.concerts;
     for (let i = 0; i < editedConcerts.length; i++) {
-      if (editedConcerts[i].id == updatedConcert.id) {
+      if (Number(editedConcerts[i].id) === Number(updatedConcert.id)) {
         editedConcerts[i] = updatedConcert;
       }
     }
@@ -155,4 +153,4 @@ class App extends React.Component {
   }
 }
 
-export default withRouter(App);
+export default App;

@@ -7,7 +7,8 @@ class LoginForm extends React.Component {
         super(props)
         this.state = {
             email: "",
-            password: ""
+            password: "",
+            errorMessage: null
         }
     }
 
@@ -18,26 +19,46 @@ class LoginForm extends React.Component {
     }
 
     handleSubmit = e => {
-        // GET for users by email
         e.preventDefault();
-        fetch(config.API_ENDPOINT + `/api/users/${this.state.email}`, {
-            method: 'GET',
-            headers: {
-                'content-type': 'application/json'
-            }
-        })
-            .then(res => {
-                if (!res.ok) {
-                    throw new Error(res.status)
-                }
-                return res.json()
-            })
-            .then((result) => {
-                this.props.onLogin(result)
-                this.props.history.push("/list")
-            })
-            .catch(error => this.setState({ error }))
 
+        const { email, password } = e.target;
+        const existingUser = {
+            email: email.value,
+            password: password.value
+        };
+        console.log("existingUser.password:", existingUser.password)
+
+        if (existingUser.email.length === 0) {
+            this.setState({
+                errorMessage: "Email is required"
+            })
+        } else if (existingUser.password.length === 0) {
+            this.setState({
+                errorMessage: "Password is required"
+            })
+        } else {
+
+            fetch(config.API_ENDPOINT + `/api/users/${this.state.email}`, {
+                method: 'POST',
+                body: JSON.stringify( existingUser ),
+                headers: {
+                    'content-type': 'application/json',
+                }
+            })
+                .then(res => {
+                    if (!res.ok) {
+                        throw new Error(res.status)
+                    }
+                    return res.json()
+                })
+                .then((result) => {
+                    this.props.onLogin(result)
+                    this.props.history.push("/list")
+                })
+                .catch(error => this.setState({ errorMessage: "Invalid credentials" }))
+
+        }
+        
     }
 
     render() {
@@ -60,6 +81,7 @@ class LoginForm extends React.Component {
                             name="password" 
                             onChange={this.handleChange}
                         />
+                        <div className='error-message'>{this.state.errorMessage}</div>
                         <br />
                         <button type="submit">Log in</button>
                     </form>

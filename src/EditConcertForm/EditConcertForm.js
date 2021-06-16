@@ -85,17 +85,18 @@ class EditConcertForm extends React.Component {
                 if (!res.ok) {
                     throw new Error(res.status)
                 }
-                return res.json()
+                return res
             })
             .then(this.props.history.push("/list"))
-            // doesn't like this setState on an unmounted component 
-            .catch(error => this.setState({ error }))
+            .catch(err => {
+                console.log(err)
+            })
     }
 
     render() {
         const id = this.props.match.params.id;
         const currentConcert = this.props.concerts.find(concert => 
-            (concert.id == id)
+            (Number(concert.id) === Number(id))
         )
 
         return (

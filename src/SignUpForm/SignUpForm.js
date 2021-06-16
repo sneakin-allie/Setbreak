@@ -31,7 +31,6 @@ class SignUpForm extends React.Component {
             password: password.value
         }
         
-        // does validation go here?
         if (newUser.firstName.length === 0) {
             this.setState({
                 errorMessage: "First name is required"
