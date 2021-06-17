@@ -33,7 +33,6 @@ class App extends React.Component {
   }
 
   handleDisplayConcerts = results => {
-    // sorts & displays concerts starting with the most recent
     const sortedConcerts = results.sort(function(a, b) {
       var c = new Date(a.date);
       var d = new Date(b.date);
@@ -53,7 +52,6 @@ class App extends React.Component {
 
     /*
     // this wasn't being called so I deleted(commented) it
-    // I think what was happening is it searched for an id after it was already deleted
 
     handleDeleteConcert = deletedConcert => {
       console.log("handleDeleteConcert in the app was called");

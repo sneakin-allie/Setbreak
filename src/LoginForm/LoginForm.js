@@ -37,7 +37,7 @@ class LoginForm extends React.Component {
             })
         } else {
 
-            fetch(config.obj.API_ENDPOINT + `/api/users/${this.state.email}`, {
+            fetch(config.API_BASE_URL + `/api/users/${this.state.email}`, {
                 method: 'POST',
                 body: JSON.stringify( existingUser ),
                 headers: {
@@ -61,6 +61,8 @@ class LoginForm extends React.Component {
     }
 
     render() {
+        console.log("config.API_BASE_URL:", config.API_BASE_URL) // working
+
         return (
             <div className="login">
                 <h3>Existing User? Log In!</h3>

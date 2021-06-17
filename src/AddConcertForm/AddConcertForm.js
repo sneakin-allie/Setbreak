@@ -35,7 +35,7 @@ class AddConcertForm extends React.Component {
             email: this.props.userInfo.email
         };
 
-        fetch(config.obj.API_ENDPOINT + `/api/concerts`, {
+        fetch(config.API_BASE_URL + `/api/concerts`, {
             method: 'POST',
             body: JSON.stringify(newConcert),
             headers: {
