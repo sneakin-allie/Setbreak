@@ -61,13 +61,11 @@ class LoginForm extends React.Component {
     }
 
     render() {
-        console.log("config.API_BASE_URL:", config.API_BASE_URL) // working
-
         return (
             <div className="login">
                 <h3>Existing User? Log In!</h3>
                     <form className="login-form" onSubmit={this.handleSubmit}>
-                        <label htmlFor="email">Email:</label>
+                        <label htmlFor="email">Email:*</label>
                         <input 
                             type="text" 
                             id="email" 
@@ -75,15 +73,15 @@ class LoginForm extends React.Component {
                             onChange={this.handleChange}
                         />
                         <br />
-                        <label htmlFor="password">Password:</label>
+                        <label htmlFor="password">Password:*</label>
                         <input 
-                            type="text" 
+                            type="password" 
                             id="password" 
                             name="password" 
                             onChange={this.handleChange}
                         />
+                        <p><i>*All fields required for log in</i></p>
                         <div className='error-message'>{this.state.errorMessage}</div>
-                        <br />
                         <button type="submit">Log in</button>
                     </form>
             </div>    

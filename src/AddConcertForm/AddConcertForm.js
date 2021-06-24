@@ -35,24 +35,34 @@ class AddConcertForm extends React.Component {
             email: this.props.userInfo.email
         };
 
-        fetch(config.API_BASE_URL + `/api/concerts`, {
-            method: 'POST',
-            body: JSON.stringify(newConcert),
-            headers: {
-                "content-type": "application/json"
-            }
-        })
-            .then(res => {
-                if(!res.ok) {
-                    throw new Error(res.status)
+        if (newConcert.artist.length === 0) {
+            this.setState({
+                errorMessage: "Artist is required"
+            })
+        } else if (newConcert.venue.length === 0) {
+            this.setState({
+                errorMessage: "Venue is required"
+            })
+        } else {
+            fetch(config.API_BASE_URL + `/api/concerts`, {
+                method: 'POST',
+                body: JSON.stringify(newConcert),
+                headers: {
+                    "content-type": "application/json"
                 }
-                return res.json()
             })
-            .then(result => {
-                this.props.onAddConcert(result)
-                this.props.history.push('/list')
-            })
-            .catch(error => this.setState({ errorMessage: "Invalid credentials" }))
+                .then(res => {
+                    if(!res.ok) {
+                        throw new Error(res.status)
+                    }
+                    return res.json()
+                })
+                .then(result => {
+                    this.props.onAddConcert(result)
+                    this.props.history.push('/list')
+                })
+                .catch(error => this.setState({ errorMessage: "Invalid credentials" }))
+        }
     }
 
     render() {
@@ -68,20 +78,22 @@ class AddConcertForm extends React.Component {
                             onChange={this.handleChange} 
                         />
                         <br />
-                        <label htmlFor="artist">Artist:</label>
+                        <label htmlFor="artist">Artist:*</label>
                         <input 
                             type="text" 
                             id="artist" 
                             name="artist" 
                             onChange={this.handleChange}
+                            required
                         />
                         <br />
-                        <label htmlFor="venue">Venue:</label>
+                        <label htmlFor="venue">Venue:*</label>
                         <input 
                             type="text" 
                             id="venue" 
                             name="venue"
-                            onChange={this.handleChange} 
+                            onChange={this.handleChange}
+                            required 
                         />
                         <br />
                         <label htmlFor="songs">Highlights:</label>
@@ -99,7 +111,8 @@ class AddConcertForm extends React.Component {
                             onChange={this.handleChange}
                         >
                         </textarea>
-                        <br />
+                        <p><i>*Required fields</i></p>
+                        <div className="error-message">{this.state.errorMessage}</div>
                         <button type="submit">Add concert</button>
                     </form>
             </div>
