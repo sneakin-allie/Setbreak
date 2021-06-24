@@ -82,42 +82,45 @@ class SignUpForm extends React.Component {
         return (
             <div className="signup">
                 <h3>New User? Sign Up!</h3>
-                <i>All fields required</i>
                     <form className="signup-form" onSubmit={this.handleSubmit}>
-                        <label htmlFor="first-name">First name:</label>
+                        <label htmlFor="first-name">First name:*</label>
                         <input 
                             type="text" 
                             id="first-name" 
                             name="firstName" 
-                            onChange={this.handleChange} 
+                            onChange={this.handleChange}
+                            required 
                         />
                         <br />
-                        <label htmlFor="last-name">Last name:</label>
+                        <label htmlFor="last-name">Last name:*</label>
                         <input 
                             type="text" 
                             id="last-name" 
                             name="lastName"
                             onChange={this.handleChange}
+                            required
                         />
                         
                         <br />
-                        <label htmlFor="email">Email:</label>
+                        <label htmlFor="email">Email:*</label>
                         <input 
                             type="text" 
                             id="email" 
                             name="email" 
                             onChange={this.handleChange}
+                            required
                         />
                         <br />
-                        <label htmlFor="password">Password:</label>
+                        <label htmlFor="password">Password:*</label>
                         <input 
                             type="text" 
                             id="password" 
                             name="password" 
                             onChange={this.handleChange}
+                            required
                         />
+                        <p><i>*All fields required</i></p>
                         <div className="error-message">{this.state.errorMessage}</div>
-                        <br />
                         <button type="submit">Sign up</button>
                     </form>
             </div>    
