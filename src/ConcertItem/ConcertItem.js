@@ -11,7 +11,7 @@ class ConcertItem extends React.Component {
                     <p>Date: {this.props.concert.date}</p>
                     <p>Artist: {this.props.concert.artist}</p>
                     <p>Venue: {this.props.concert.venue}</p>
-                    <p>Favorite songs: {this.props.concert.songs}</p>
+                    <p>Highlights: {this.props.concert.songs}</p>
                     <p>Notes: {this.props.concert.notes}</p>
                     <Link 
                         to={{

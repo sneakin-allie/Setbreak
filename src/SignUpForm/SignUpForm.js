@@ -72,7 +72,7 @@ class SignUpForm extends React.Component {
                 })
                 .then(result => {
                     this.props.onSignUp(result);
-                    this.props.history.push('/add')
+                    this.props.history.push('/list')
                 })
                 .catch(error => this.setState({ error }))
         }
@@ -82,6 +82,7 @@ class SignUpForm extends React.Component {
         return (
             <div className="signup">
                 <h3>New User? Sign Up!</h3>
+                <i>All fields required</i>
                     <form className="signup-form" onSubmit={this.handleSubmit}>
                         <label htmlFor="first-name">First name:</label>
                         <input 

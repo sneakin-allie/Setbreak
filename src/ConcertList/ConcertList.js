@@ -3,6 +3,7 @@ import ConcertItem from '../ConcertItem/ConcertItem';
 import config from '../config';
 import './ConcertList.css';
 import { withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class ConcertList extends React.Component {
     constructor(props) {
@@ -35,18 +36,29 @@ class ConcertList extends React.Component {
         return (
             <div className="concerts">
                 <h3>Concert Collection</h3>
-                    <ul className="concert-list">
-                        {this.props.concerts.map((concert, i) =>
-                            <ConcertItem
-                                key={i}
-                                concert={concert}
-                                onUpdateConcert={this.props.handleUpdateConcert}
-                                onDeleteConcert={this.props.handleDeleteConcert}
-                                concerts={this.state.concerts}
-                                userInfo={this.state.userInfo}
-                            />
-                        )}
-                    </ul>
+                <h3>Welcome {this.props.userInfo.firstName}!</h3>
+                    <Link 
+                        to={{
+                            pathname: `/add`
+                        }}
+                    >   
+                            <button 
+                                type="button">
+                                Add new
+                            </button>
+                    </Link>
+                        <ul className="concert-list">
+                            {this.props.concerts.map((concert, i) =>
+                                <ConcertItem
+                                    key={i}
+                                    concert={concert}
+                                    onUpdateConcert={this.props.handleUpdateConcert}
+                                    onDeleteConcert={this.props.handleDeleteConcert}
+                                    concerts={this.state.concerts}
+                                    userInfo={this.state.userInfo}
+                                />
+                            )}
+                        </ul>
             </div>
         );
     }

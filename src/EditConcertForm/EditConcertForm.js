@@ -130,7 +130,7 @@ class EditConcertForm extends React.Component {
                             ref={this.venue} 
                         />
                         <br />
-                        <label htmlFor="songs">Favorite songs:</label>
+                        <label htmlFor="songs">Highlights:</label>
                         <input 
                             type="text" 
                             id="songs" 

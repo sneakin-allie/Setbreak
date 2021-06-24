@@ -84,7 +84,7 @@ class AddConcertForm extends React.Component {
                             onChange={this.handleChange} 
                         />
                         <br />
-                        <label htmlFor="songs">Favorite songs:</label>
+                        <label htmlFor="songs">Highlights:</label>
                         <input 
                             type="text" 
                             id="songs" 
