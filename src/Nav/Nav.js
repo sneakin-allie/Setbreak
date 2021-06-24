@@ -15,6 +15,9 @@ class Nav extends React.Component {
                 <Link to="/add">
                     Add New Concert
                 </Link>
+                <Link to='/'>
+                    Log Out
+                </Link>
             </div>
         )
     }
