@@ -1,0 +1,9 @@
+.Add-new-concert form {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 15px 10px;
+}
+
+.Add-new-concert p {
+    font-size: 14px;
+    margin: 5px 0px;
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 import config from '../config';
 import { withRouter } from 'react-router-dom';
+import './EditConcertForm.css';
 
 class EditConcertForm extends React.Component {
     constructor(props) {
@@ -100,7 +101,7 @@ class EditConcertForm extends React.Component {
         )
 
         return (
-            <div className="edit-concert">
+            <div className="Edit-concert">
                 <h3>Edit Concert</h3>
                     <form className="edit-concert-form">
                         <label htmlFor="date">Date:</label>

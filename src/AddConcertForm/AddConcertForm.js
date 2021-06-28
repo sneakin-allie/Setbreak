@@ -69,7 +69,7 @@ class AddConcertForm extends React.Component {
     render() {
         return (
             <div className="Add-new-concert">
-                <h3>Add New Concert</h3>
+                <h3>Add A New Concert</h3>
                     <form className="add-new-concert-form" onSubmit={this.handleSubmit}>
                         <label htmlFor="date">Date:</label>
                         <input 

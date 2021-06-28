@@ -13,6 +13,7 @@ class ConcertList extends React.Component {
         }
     }
 
+    /*
     componentDidMount() {
         fetch(config.API_BASE_URL + `/api/concerts/${this.props.userInfo.email}`, {
             method: 'GET',
@@ -31,12 +32,13 @@ class ConcertList extends React.Component {
             })
             .catch(error => this.setState({ error }))
     }
+    */
 
     render() {
         return (
             <div className="Concerts">
-                <h3>Concert Collection</h3>
                 <h3>Welcome, {this.props.userInfo.firstName}!</h3>
+                <h3>Concert Collection</h3>
                     <Link 
                         to={{
                             pathname: `/add`
