@@ -1,15 +1,20 @@
-.nav a,
-.nav a:active,
-.nav a:focus,
-.nav a:visited {
+.Nav a,
+.Nav a:active,
+.Nav a:focus,
+.Nav a:visited {
   color: #ececea;
 }
 
-.nav a:hover {
+.Nav a:hover {
   color: #ffffff;
   text-decoration: solid;
 }
 
-.nav a:not(:last-of-type) {
+.Nav a:not(:last-of-type) {
   margin-right: 32px;
+}
+
+.Nav {
+  color: white;
+  background-color: #380a3b;
 }

@@ -80,9 +80,9 @@ class LoginForm extends React.Component {
                             name="password" 
                             onChange={this.handleChange}
                         />
-                        <p><i>*All fields required for log in</i></p>
+                        <p><i>*All fields required</i></p>
                         <div className='error-message'>{this.state.errorMessage}</div>
-                        <button type="submit">Log in</button>
+                        <button type="submit">Log In</button>
                     </form>
             </div>    
         );

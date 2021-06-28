@@ -119,9 +119,9 @@ class SignUpForm extends React.Component {
                             onChange={this.handleChange}
                             required
                         />
-                        <p><i>*All fields required for sign up</i></p>
+                        <p><i>*All fields required</i></p>
                         <div className="error-message">{this.state.errorMessage}</div>
-                        <button type="submit">Sign up</button>
+                        <button type="submit">Sign Up</button>
                     </form>
             </div>    
         );
