@@ -1,6 +1,7 @@
 import React from 'react';
 import config from '../config';
 import { withRouter } from 'react-router-dom';
+import './SignUpForm.css';
 
 class SignUpForm extends React.Component {
     constructor(props) {
@@ -80,9 +81,9 @@ class SignUpForm extends React.Component {
 
     render() {
         return (
-            <div className="signup">
-                    <h3>New User? Sign Up!</h3>
-                    <form className="signup-form" onSubmit={this.handleSubmit}>
+            <div className="Signup">
+                <h3>New User? Sign Up!</h3>
+                    <form className="Signup-form" onSubmit={this.handleSubmit}>
                         <label htmlFor="first-name">First name:*</label>
                         <input 
                             type="text" 

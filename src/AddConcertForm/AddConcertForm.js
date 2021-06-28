@@ -114,7 +114,7 @@ class AddConcertForm extends React.Component {
                         </textarea>
                         <p><i>*Required fields</i></p>
                         <div className="error-message">{this.state.errorMessage}</div>
-                        <button type="submit">Add concert</button>
+                        <button type="submit">Add Concert</button>
                     </form>
             </div>
         );
