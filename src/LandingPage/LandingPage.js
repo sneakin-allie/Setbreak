@@ -14,9 +14,13 @@ class LandingPage extends React.Component {
                 <h3>Add new concerts and edit as you go</h3>
                 <p>Setbreak allows you to add new concerts and edit and delete them as needed. Upload information about a concert halfway through the show, and then return to it later to add more details!</p>
                 <br />
-                <SignUpForm onSignUp={this.props.onSignUp}/>
+                <section>
+                    <SignUpForm onSignUp={this.props.onSignUp}/>
+                </section>
                 <br />
-                <LoginForm onLogin={this.props.onLogin}/>
+                <section>
+                    <LoginForm onLogin={this.props.onLogin}/>
+                </section>
             </div>
         );
     }
