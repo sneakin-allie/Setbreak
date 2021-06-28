@@ -2,11 +2,11 @@
 .Nav a:active,
 .Nav a:focus,
 .Nav a:visited {
-  color: #fd604e;
+  color: white;
 }
 
 .Nav a:hover {
-  color: #ffffff;
+  color: #fd604e;
   text-decoration: solid;
 }
 
