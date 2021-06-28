@@ -63,7 +63,7 @@ class LoginForm extends React.Component {
     render() {
         return (
             <div className="login">
-                <h3>Existing User? Log In!</h3>
+                    <h3>Existing User? Log In!</h3>
                     <form className="login-form" onSubmit={this.handleSubmit}>
                         <label htmlFor="email">Email:*</label>
                         <input 

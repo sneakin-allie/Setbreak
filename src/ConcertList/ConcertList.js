@@ -34,7 +34,7 @@ class ConcertList extends React.Component {
 
     render() {
         return (
-            <div className="concerts">
+            <div className="Concerts">
                 <h3>Concert Collection</h3>
                 <h3>Welcome, {this.props.userInfo.firstName}!</h3>
                     <Link 

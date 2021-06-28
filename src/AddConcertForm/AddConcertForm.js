@@ -1,6 +1,7 @@
 import React from 'react';
 import config from '../config';
 import { withRouter } from 'react-router-dom';
+import './AddConcertForm.css';
 
 class AddConcertForm extends React.Component {
     constructor(props) {
@@ -67,7 +68,7 @@ class AddConcertForm extends React.Component {
 
     render() {
         return (
-            <div className="add-new-concert">
+            <div className="Add-new-concert">
                 <h3>Add New Concert</h3>
                     <form className="add-new-concert-form" onSubmit={this.handleSubmit}>
                         <label htmlFor="date">Date:</label>
