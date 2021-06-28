@@ -10,7 +10,7 @@ class Nav extends React.Component {
                     Home
                 </Link>
                 <Link to="/list">
-                    Concert List
+                    Concert Collection
                 </Link>
                 <Link to="/add">
                     Add New Concert

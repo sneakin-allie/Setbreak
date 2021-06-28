@@ -36,7 +36,7 @@ class ConcertList extends React.Component {
         return (
             <div className="concerts">
                 <h3>Concert Collection</h3>
-                <h3>Welcome {this.props.userInfo.firstName}!</h3>
+                <h3>Welcome, {this.props.userInfo.firstName}!</h3>
                     <Link 
                         to={{
                             pathname: `/add`
@@ -44,7 +44,7 @@ class ConcertList extends React.Component {
                     >   
                             <button 
                                 type="button">
-                                Add new
+                                Add New Concert
                             </button>
                     </Link>
                         <ul className="concert-list">
