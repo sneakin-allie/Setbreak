@@ -43,12 +43,14 @@ class ConcertList extends React.Component {
                         to={{
                             pathname: `/add`
                         }}
-                    >   
-                            <button 
-                                type="button"
-                                className="Add-new-concert-button">
-                                Add New Concert
-                            </button>
+                    >
+                        <div className="Add-new-concert-button-container">
+                            <div className="Add-new-concert-button">
+                                <button type="button">
+                                    Add New Concert
+                                </button>
+                            </div>   
+                        </div>
                     </Link>
                         <ul className="Concert-list">
                             {this.props.concerts.map((concert, i) =>
