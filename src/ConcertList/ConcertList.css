@@ -4,7 +4,6 @@
     list-style-type: none;
 }
 
-/* Button needs recentering */
 .Add-new-concert-button-container {
     height: 50px;
     position: relative;
@@ -18,4 +17,23 @@
     left: 50%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+}
+
+/* Groups & Items (Mobile first) */
+
+.group {
+    display: flex;
+    flex-direction: column;
+}
+
+.item-double {
+    flex: 1;
+}
+
+/* Groups & Items (Desktop) */
+
+@media all and (min-width: 800px) {
+    .group {
+        flex-direction: row;
+    }
 }

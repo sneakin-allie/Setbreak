@@ -1,3 +1,8 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
 .App {
     box-sizing: border-box;
 }
@@ -13,6 +18,7 @@
 
 .App {
     background-color: #ebd471;
+    min-height: 100vh;
 }
 
 .App > header {

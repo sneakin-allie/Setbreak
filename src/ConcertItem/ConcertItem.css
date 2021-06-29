@@ -13,3 +13,22 @@
 .Concert button {
     margin: 5px;
 }
+
+/* Groups & Items (Mobile first) */
+
+.group {
+    display: flex;
+    flex-direction: column;
+}
+
+.item-double {
+    flex: 1;
+}
+
+/* Groups & Items (Desktop) */
+
+@media all and (min-width: 800px) {
+    .group {
+        flex-direction: row;
+    }
+}
