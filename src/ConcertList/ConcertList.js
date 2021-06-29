@@ -37,7 +37,7 @@ class ConcertList extends React.Component {
     render() {
         return (
             <div className="Concerts">
-                <h3>Welcome, {this.props.userInfo.firstName}!</h3>
+                <h3><i>Welcome, {this.props.userInfo.firstName}Allison!</i></h3>
                 <h3>Concert Collection</h3>
                     <Link 
                         to={{
@@ -45,11 +45,12 @@ class ConcertList extends React.Component {
                         }}
                     >   
                             <button 
-                                type="button">
+                                type="button"
+                                className="Add-new-concert-button">
                                 Add New Concert
                             </button>
                     </Link>
-                        <ul className="concert-list">
+                        <ul className="Concert-list">
                             {this.props.concerts.map((concert, i) =>
                                 <ConcertItem
                                     key={i}

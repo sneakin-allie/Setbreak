@@ -6,7 +6,7 @@ import { withRouter } from 'react-router-dom';
 class ConcertItem extends React.Component {
     render() {
         return (
-            <div className="concert">
+            <div className="Concert">
                 <li>
                     <p>Date: {this.props.concert.date}</p>
                     <p>Artist: {this.props.concert.artist}</p>
