@@ -65,26 +65,35 @@ class LoginForm extends React.Component {
         return (
             <div className="Login">
                     <h3>Existing User? Log In!</h3>
-                    <form className="Login-form" onSubmit={this.handleSubmit}>
-                        <label htmlFor="email">Email:*</label>
-                        <input 
-                            type="text" 
-                            id="email" 
-                            name="email" 
-                            onChange={this.handleChange}
-                        />
-                        <br />
-                        <label htmlFor="password">Password:*</label>
-                        <input 
-                            type="password" 
-                            id="password" 
-                            name="password" 
-                            onChange={this.handleChange}
-                        />
-                        <p><i>*All fields required</i></p>
-                        <div className='error-message'>{this.state.errorMessage}</div>
-                        <button type="submit">Log In</button>
-                    </form>
+                        <div className="Form-container">
+                            <form className="Login-form" onSubmit={this.handleSubmit}>
+                                <label htmlFor="email">Email:*</label>
+                                <input 
+                                    type="text" 
+                                    id="email" 
+                                    name="email" 
+                                    onChange={this.handleChange}
+                                />
+                                <br />
+                                <label htmlFor="password">Password:*</label>
+                                <input 
+                                    type="password" 
+                                    id="password" 
+                                    name="password" 
+                                    onChange={this.handleChange}
+                                />
+                                <p><i>*All fields required</i></p>
+                                    <div className='error-message'>{this.state.errorMessage}</div>
+                                        <div className="Login-button-container">
+                                            <button 
+                                                className="Login-button"
+                                                type="submit"
+                                            >
+                                                Log In
+                                            </button>
+                                        </div>
+                            </form>
+                        </div>
             </div>    
         );
     }

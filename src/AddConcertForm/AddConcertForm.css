@@ -22,7 +22,7 @@
     text-align: left;
     padding: 10px;
     border: 1px solid black;
-    background: #ffb5ad;
+    background: #fffcd3;
     margin: 20px 20px 10px 20px;
 }
 
@@ -40,12 +40,3 @@
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
-
-/*
-.Concert li {
-    padding: 10px;
-    border: 1px solid black;
-    background: #a4f1e5;
-    margin: 0px 20px 10px 20px;
-}
-*/

@@ -83,47 +83,57 @@ class SignUpForm extends React.Component {
         return (
             <div className="Signup">
                 <h3>New User? Sign Up!</h3>
-                    <form className="Signup-form" onSubmit={this.handleSubmit}>
-                        <label htmlFor="first-name">First name:*</label>
-                        <input 
-                            type="text" 
-                            id="first-name" 
-                            name="firstName" 
-                            onChange={this.handleChange}
-                            required 
-                        />
-                        <br />
-                        <label htmlFor="last-name">Last name:*</label>
-                        <input 
-                            type="text" 
-                            id="last-name" 
-                            name="lastName"
-                            onChange={this.handleChange}
-                            required
-                        />
-                        
-                        <br />
-                        <label htmlFor="email">Email:*</label>
-                        <input 
-                            type="text" 
-                            id="email" 
-                            name="email" 
-                            onChange={this.handleChange}
-                            required
-                        />
-                        <br />
-                        <label htmlFor="password">Password:*</label>
-                        <input 
-                            type="password" 
-                            id="password" 
-                            name="password" 
-                            onChange={this.handleChange}
-                            required
-                        />
-                        <p><i>*All fields required</i></p>
-                        <div className="error-message">{this.state.errorMessage}</div>
-                        <button type="submit">Sign Up</button>
-                    </form>
+                    <div className="Form-container">
+                        <form className="Signup-form" onSubmit={this.handleSubmit}>
+                            <label htmlFor="first-name">First name:*</label>
+                            <input 
+                                type="text" 
+                                id="first-name" 
+                                name="firstName" 
+                                onChange={this.handleChange}
+                                required 
+                            />
+                            <br />
+                            <label htmlFor="last-name">Last name:*</label>
+                            <input 
+                                type="text" 
+                                id="last-name" 
+                                name="lastName"
+                                onChange={this.handleChange}
+                                required
+                            />
+                            
+                            <br />
+                            <label htmlFor="email">Email:*</label>
+                            <input 
+                                type="text" 
+                                id="email" 
+                                name="email" 
+                                onChange={this.handleChange}
+                                required
+                            />
+                            <br />
+                            <label htmlFor="password">Password:*</label>
+                            <input 
+                                type="password" 
+                                id="password" 
+                                name="password" 
+                                onChange={this.handleChange}
+                                required
+                            />
+                            <p><i>*All fields required</i></p>
+                                <div className="error-message">{this.state.errorMessage}</div>
+                                    <div className="Signup-button-container">
+                                        <button 
+                                            className="Signup-button"
+                                            type="submit"
+                                        >
+                                            Sign Up
+                                        </button>
+                                    </div>
+                        </form>
+                    </div>
+                    
             </div>    
         );
     }
