@@ -13,16 +13,20 @@ class ConcertItem extends React.Component {
                     <p>Venue: {this.props.concert.venue}</p>
                     <p>Highlights: {this.props.concert.songs}</p>
                     <p>Notes: {this.props.concert.notes}</p>
-                    <Link 
-                        to={{
-                            pathname: `/edit/${this.props.concert.id}`
-                        }}
-                    >   
-                            <button 
-                                type="button">
-                                Edit
-                            </button>
-                    </Link>
+                        <div className="Edit-button-container">   
+                            <Link 
+                                to={{
+                                    pathname: `/edit/${this.props.concert.id}`
+                                }}
+                            >   
+                                    <button 
+                                        className="Edit-button"
+                                        type="button"
+                                    >
+                                        Edit
+                                    </button>
+                            </Link>
+                        </div>
                 </li>  
             </div>
         );
