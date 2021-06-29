@@ -13,7 +13,6 @@ class ConcertList extends React.Component {
         }
     }
 
-    /*
     componentDidMount() {
         fetch(config.API_BASE_URL + `/api/concerts/${this.props.userInfo.email}`, {
             method: 'GET',
@@ -32,12 +31,11 @@ class ConcertList extends React.Component {
             })
             .catch(error => this.setState({ error }))
     }
-    */
 
     render() {
         return (
             <div className="Concert-collection">
-                <h3 className="Welcome-banner"><i>Welcome, {this.props.userInfo.firstName}Allie!</i></h3>
+                <h3 className="Welcome-banner"><i>Welcome, {this.props.userInfo.firstName}!</i></h3>
                 <h3 className="Concert-collection-banner">Concert Collection</h3>
                     <div className="Add-new-concert-button-container">
                         <div className="Add-new-concert-button">

@@ -149,16 +149,20 @@ class EditConcertForm extends React.Component {
                                 ref={this.notes}>
                             </textarea>
                             <br />
-                            <button 
-                                onClick={this.handleUpdate}
-                                type="button">
-                                Update
-                            </button>
-                            <button
-                                onClick={this.handleDelete}
-                                type="button">
-                                Delete
-                            </button>
+                            <div className="Button-container">
+                                <button 
+                                    className="Update-button"
+                                    onClick={this.handleUpdate}
+                                    type="button">
+                                    Update
+                                </button>
+                                <button
+                                    className="Delete-button"
+                                    onClick={this.handleDelete}
+                                    type="button">
+                                    Delete
+                                </button>
+                            </div>
                         </form>
                     </div>
             </div>

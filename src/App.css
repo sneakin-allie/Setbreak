@@ -51,7 +51,7 @@ body {
 }
 
 .App textarea {
-    margin: 2px 0px 0px 2px;
+    margin: 3px 0px 0px 3px;
     border: 1px solid;
     border-radius: 3px;
     height: 150px;
@@ -59,7 +59,7 @@ body {
 }
 
 .App input {
-    margin: 2px;
+    margin: 3px;
     border: 1px solid;
     border-radius: 3px;
 }

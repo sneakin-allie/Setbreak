@@ -8,14 +8,13 @@ import Footer from './Footer/Footer';
 import AddConcertForm from './AddConcertForm/AddConcertForm';
 import EditConcertForm from './EditConcertForm/EditConcertForm';
 import './App.css';
-import testData from './TestData';
 
 class App extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      concerts: testData,
+      concerts: [],
       userInfo: {},
       // error: null Do I need to add this?
     }
