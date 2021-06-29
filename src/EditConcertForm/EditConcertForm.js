@@ -103,62 +103,64 @@ class EditConcertForm extends React.Component {
         return (
             <div className="Edit-concert">
                 <h3>Edit Concert</h3>
-                    <form className="edit-concert-form">
-                        <label htmlFor="date">Date:</label>
-                        <input 
-                            type="date" 
-                            id="date" 
-                            name="date"
-                            defaultValue={currentConcert.date}
-                            ref={this.date}
-                        />
-                        <br />
-                        <label htmlFor="artist">Artist:</label>
-                        <input 
-                            type="text" 
-                            id="artist" 
-                            name="artist" 
-                            defaultValue={currentConcert.artist}
-                            ref={this.artist}
-                        />
-                        <br />
-                        <label htmlFor="venue">Venue:</label>
-                        <input 
-                            type="text" 
-                            id="venue" 
-                            name="venue"
-                            defaultValue={currentConcert.venue}
-                            ref={this.venue} 
-                        />
-                        <br />
-                        <label htmlFor="songs">Highlights:</label>
-                        <input 
-                            type="text" 
-                            id="songs" 
-                            name="songs" 
-                            defaultValue={currentConcert.songs}
-                            ref={this.songs}
-                        />
-                        <br />
-                        <label htmlFor="notes">Notes:</label>
-                        <textarea 
-                            id="notes" 
-                            name="notes"
-                            defaultValue={currentConcert.notes}
-                            ref={this.notes}>
-                        </textarea>
-                        <br />
-                        <button 
-                            onClick={this.handleUpdate}
-                            type="button">
-                            Update
-                        </button>
-                        <button
-                            onClick={this.handleDelete}
-                            type="button">
-                            Delete
-                        </button>
-                    </form>
+                    <div className="Form-container">
+                        <form className="Edit-concert-form">
+                            <label htmlFor="date">Date:</label>
+                            <input 
+                                type="date" 
+                                id="date" 
+                                name="date"
+                                defaultValue={currentConcert.date}
+                                ref={this.date}
+                            />
+                            <br />
+                            <label htmlFor="artist">Artist:</label>
+                            <input 
+                                type="text" 
+                                id="artist" 
+                                name="artist" 
+                                defaultValue={currentConcert.artist}
+                                ref={this.artist}
+                            />
+                            <br />
+                            <label htmlFor="venue">Venue:</label>
+                            <input 
+                                type="text" 
+                                id="venue" 
+                                name="venue"
+                                defaultValue={currentConcert.venue}
+                                ref={this.venue} 
+                            />
+                            <br />
+                            <label htmlFor="songs">Highlights:</label>
+                            <input 
+                                type="text" 
+                                id="songs" 
+                                name="songs" 
+                                defaultValue={currentConcert.songs}
+                                ref={this.songs}
+                            />
+                            <br />
+                            <label htmlFor="notes">Notes:</label>
+                            <textarea 
+                                id="notes" 
+                                name="notes"
+                                defaultValue={currentConcert.notes}
+                                ref={this.notes}>
+                            </textarea>
+                            <br />
+                            <button 
+                                onClick={this.handleUpdate}
+                                type="button">
+                                Update
+                            </button>
+                            <button
+                                onClick={this.handleDelete}
+                                type="button">
+                                Delete
+                            </button>
+                        </form>
+                    </div>
             </div>
         );
     }
