@@ -38,8 +38,26 @@ body {
 .App button {
     background-color: #077e77;
     color: white;
+    border: 1px solid black;
+    border-radius: 3px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.App button:hover {
+    color: #fd604e;
+    text-decoration: solid;
+    font-style: bold;
 }
 
 .App textarea {
-    
+    margin: 2px 0px 0px 0px;
+    border: 1px solid;
+    border-radius: 3px;
+}
+
+.App input {
+    margin: 2px;
+    border: 1px solid;
+    border-radius: 3px;
 }

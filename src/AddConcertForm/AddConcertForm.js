@@ -70,52 +70,61 @@ class AddConcertForm extends React.Component {
         return (
             <div className="Add-new-concert">
                 <h3>Add A New Concert</h3>
-                    <form className="add-new-concert-form" onSubmit={this.handleSubmit}>
-                        <label htmlFor="date">Date:</label>
-                        <input 
-                            type="date" 
-                            id="date" 
-                            name="date"
-                            onChange={this.handleChange} 
-                        />
-                        <br />
-                        <label htmlFor="artist">Artist:*</label>
-                        <input 
-                            type="text" 
-                            id="artist" 
-                            name="artist" 
-                            onChange={this.handleChange}
-                            required
-                        />
-                        <br />
-                        <label htmlFor="venue">Venue:*</label>
-                        <input 
-                            type="text" 
-                            id="venue" 
-                            name="venue"
-                            onChange={this.handleChange}
-                            required 
-                        />
-                        <br />
-                        <label htmlFor="songs">Highlights:</label>
-                        <input 
-                            type="text" 
-                            id="songs" 
-                            name="songs" 
-                            onChange={this.handleChange}
-                        />
-                        <br />
-                        <label htmlFor="notes">Notes:</label>
-                        <textarea 
-                            id="notes" 
-                            name="notes"
-                            onChange={this.handleChange}
-                        >
-                        </textarea>
-                        <p><i>*Required fields</i></p>
-                        <div className="error-message">{this.state.errorMessage}</div>
-                        <button type="submit">Add Concert</button>
-                    </form>
+                    <div className="Form-container">
+                        <form className="Add-new-concert-form" onSubmit={this.handleSubmit}>
+                            <label htmlFor="date">Date:</label>
+                            <input 
+                                type="date" 
+                                id="date" 
+                                name="date"
+                                onChange={this.handleChange} 
+                            />
+                            <br />
+                            <label htmlFor="artist">Artist:*</label>
+                            <input 
+                                type="text" 
+                                id="artist" 
+                                name="artist" 
+                                onChange={this.handleChange}
+                                required
+                            />
+                            <br />
+                            <label htmlFor="venue">Venue:*</label>
+                            <input 
+                                type="text" 
+                                id="venue" 
+                                name="venue"
+                                onChange={this.handleChange}
+                                required 
+                            />
+                            <br />
+                            <label htmlFor="songs">Highlights:</label>
+                            <input 
+                                type="text" 
+                                id="songs" 
+                                name="songs" 
+                                onChange={this.handleChange}
+                            />
+                            <br />
+                            <label htmlFor="notes">Notes:</label>
+                            <textarea 
+                                id="notes" 
+                                name="notes"
+                                onChange={this.handleChange}
+                            >
+                            </textarea>
+                            <p><i>*Required fields</i></p>
+                            <div className="Error-message">{this.state.errorMessage}</div>
+                            <div className="Add-concert-button-container">
+                                <button
+                                    className="Add-concert-button" 
+                                    type="submit"
+                                >
+                                    Add Concert
+                                </button>
+                            </div>
+                        </form>
+                    </div>
             </div>
         );
     }
