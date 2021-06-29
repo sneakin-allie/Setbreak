@@ -36,22 +36,22 @@ class ConcertList extends React.Component {
 
     render() {
         return (
-            <div className="Concerts">
-                <h3><i>Welcome, {this.props.userInfo.firstName}Allison!</i></h3>
-                <h3>Concert Collection</h3>
-                    <Link 
-                        to={{
-                            pathname: `/add`
-                        }}
-                    >
-                        <div className="Add-new-concert-button-container">
-                            <div className="Add-new-concert-button">
+            <div className="Concert-collection">
+                <h3 className="Welcome-banner"><i>Welcome, {this.props.userInfo.firstName}Allie!</i></h3>
+                <h3 className="Concert-collection-banner">Concert Collection</h3>
+                    <div className="Add-new-concert-button-container">
+                        <div className="Add-new-concert-button">
+                            <Link 
+                                to={{
+                                    pathname: `/add`
+                                }}
+                            >
                                 <button type="button">
                                     Add New Concert
                                 </button>
-                            </div>   
+                            </Link>
                         </div>
-                    </Link>
+                    </div>
                         <ul className="Concert-list">
                             {this.props.concerts.map((concert, i) =>
                                 <ConcertItem

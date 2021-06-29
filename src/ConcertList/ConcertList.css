@@ -1,11 +1,29 @@
-.Concerts ul {
+.Welcome-banner {
+    background-color: #380a3b;
+    color: #fd604e;
+    margin: 0px 0px 0px 0px;
+    padding: 10px 10px 5px 10px;
+    font-family: Helvetica, sans-serif;
+    text-align: center;
+}
+
+.Concert-collection-banner {
+    background-color: #380a3b;
+    color: #fd604e;
+    margin: 0px 0px 0px 0px;
+    padding: 5px 10px 10px 10px;
+    font-family: Helvetica, sans-serif;
+    text-align: center;
+}
+
+.Concert-collection ul {
     margin: 0;
     padding: 0;
     list-style-type: none;
 }
 
 .Add-new-concert-button-container {
-    height: 50px;
+    height: 60px;
     position: relative;
 }
 

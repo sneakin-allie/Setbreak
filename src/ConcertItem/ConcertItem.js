@@ -8,8 +8,8 @@ class ConcertItem extends React.Component {
         return (
             <div className="Concert">
                 <li>
+                    <p className="Artist">Artist: {this.props.concert.artist}</p>
                     <p>Date: {this.props.concert.date}</p>
-                    <p>Artist: {this.props.concert.artist}</p>
                     <p>Venue: {this.props.concert.venue}</p>
                     <p>Highlights: {this.props.concert.songs}</p>
                     <p>Notes: {this.props.concert.notes}</p>
