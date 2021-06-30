@@ -41,6 +41,7 @@ body {
     border-radius: 3px;
     padding: 5px;
     cursor: pointer;
+    border: none;
 }
 
 .App button:hover {
@@ -61,4 +62,12 @@ body {
     margin: 3px;
     border: 1px solid;
     border-radius: 3px;
+}
+
+.Error-message {
+    font-style: bold;
+    font-size: 14px;
+    margin: 0px 0px 5px 0px;
+    text-align: center;
+    color: #fd604e;
 }

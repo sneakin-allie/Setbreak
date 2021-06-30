@@ -73,6 +73,7 @@ class LoginForm extends React.Component {
                                     id="email" 
                                     name="email" 
                                     onChange={this.handleChange}
+                                    required
                                 />
                                 <br />
                                 <label htmlFor="password">Password:*</label>
@@ -81,9 +82,10 @@ class LoginForm extends React.Component {
                                     id="password" 
                                     name="password" 
                                     onChange={this.handleChange}
+                                    required
                                 />
                                 <p><i>*All fields required</i></p>
-                                    <div className='error-message'>{this.state.errorMessage}</div>
+                                    <div className="Error-message">{this.state.errorMessage}</div>
                                         <div className="Login-button-container">
                                             <button 
                                                 className="Login-button"

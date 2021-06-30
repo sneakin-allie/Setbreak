@@ -13,12 +13,10 @@ class LandingPage extends React.Component {
                     <p className="Landing-page-p">Setbreak helps you remember the moments you never want to forget. Did the artist play your favorite song, make a funny joke, tell a story, or get creative with props? Keep notes of these moments and more!</p>
                 <h3>Add new concerts and edit as you go</h3>
                     <p className="Landing-page-p">Setbreak allows you to add new concerts and edit and delete them as needed. Upload information about a concert halfway through the show, and then return to it later to add more details!</p>
-                <br />
                 <div className="group">
                     <div className="item-double">
                         <SignUpForm onSignUp={this.props.onSignUp}/>
                     </div>
-                    <br />
                     <div className="item-double">
                         <LoginForm onLogin={this.props.onLogin}/>
                     </div>

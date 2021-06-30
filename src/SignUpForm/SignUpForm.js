@@ -75,7 +75,11 @@ class SignUpForm extends React.Component {
                     this.props.onSignUp(result);
                     this.props.history.push('/list')
                 })
-                .catch(error => this.setState({ error }))
+                .catch(error => {
+                    this.setState({
+                        errorMessage: "Email already exists"
+                    });
+                });
         }
     }
 
@@ -122,7 +126,7 @@ class SignUpForm extends React.Component {
                                 required
                             />
                             <p><i>*All fields required</i></p>
-                                <div className="error-message">{this.state.errorMessage}</div>
+                                <div className="Error-message">{this.state.errorMessage}</div>
                                     <div className="Signup-button-container">
                                         <button 
                                             className="Signup-button"
