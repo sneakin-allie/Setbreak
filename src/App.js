@@ -16,7 +16,6 @@ class App extends React.Component {
     this.state = {
       concerts: [],
       userInfo: {},
-      // error: null Do I need to add this?
     }
   }
 
@@ -49,20 +48,6 @@ class App extends React.Component {
         concerts: oldConcerts.concat(newConcert)
     })
   }
-
-    /*
-    // this wasn't being called so I deleted(commented) it
-
-    handleDeleteConcert = deletedConcert => {
-      console.log("handleDeleteConcert in the app was called");
-      const newConcerts = this.state.concerts.filter(item => item.id !== deletedConcert.id);
-      this.setState({
-        concerts: newConcerts
-      })
-      this.props.history.push("/list")
-    }
-
-    */
 
   handleUpdateConcert = updatedConcert => {
     const editedConcerts = this.state.concerts;
@@ -112,7 +97,6 @@ class App extends React.Component {
                   onLogin={this.handleLogin}
                   onAddConcert={this.handleAddConcert}
                   onUpdateConcert={this.handleUpdateConcert}
-                  onDeleteConcert={this.handleDeleteConcert}
                   onDisplayConcerts={this.handleDisplayConcerts}
                 />
               } 
@@ -137,7 +121,6 @@ class App extends React.Component {
                   concerts={this.state.concerts} 
                   userInfo={this.state.userInfo}
                   onUpdateConcert={this.handleUpdateConcert}
-                  onDeleteConcert={this.handleDeleteConcert}
                 />
               } 
             />
