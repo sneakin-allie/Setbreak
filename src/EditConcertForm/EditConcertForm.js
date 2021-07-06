@@ -15,6 +15,7 @@ class EditConcertForm extends React.Component {
     }
 
     componentDidMount() {
+        console.log("props:", this.props)
         const { id } = this.props.match.params;
         fetch(config.API_BASE_URL + `/api/concerts/${id}`, {
             method: 'GET',
