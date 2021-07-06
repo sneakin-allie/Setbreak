@@ -125,6 +125,7 @@ class SignUpForm extends React.Component {
                                 onChange={this.handleChange}
                                 required
                             />
+                            <p><i>Password must be at least 8 characters and contain at least one number</i></p>
                             <p><i>*All fields required</i></p>
                                 <div className="Error-message">{this.state.errorMessage}</div>
                                     <div className="Signup-button-container">
