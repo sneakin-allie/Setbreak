@@ -1,6 +1,6 @@
-# Capstone: SETBREAK
+# Capstone 1: SETBREAK
 
-This full stack application was made as my first capstone project for the Bloc/Thinkful Web Development course. It is a concert tracker application to be used by concert attendees that allows for the tracking of concerts and details, including the artist, venue, date, highlights, and other notes. This application was built to meet the specifications laid out by the Bloc/Thinkful course. The project's server-side code can be viewed on its GitHub repository here: https://github.com/sneakin-allie/setbreak-api
+This application was made for my first capstone project for the Bloc/Thinkful Web Development course. It is a concert tracker application that music fans can use to keep track of concerts they've attended. Users can upload details about the concert including artist, venue, date, highlights, and notes. Inspiration for this application came from my friends' desire to recount concerts from the past year. This application was built to meet the specifications laid out by the Bloc/Thinkful course. The project's server-side code can be viewed on its GitHub repository here: https://github.com/sneakin-allie/setbreak-api
 
 ## Live Application
 
@@ -14,13 +14,21 @@ Both are hosted on Vercel with the SQL Database hosted on Heroku.
 
 SETBREAK has four main page branches. The Home/Landing Page, Concert Collection Page, Add New Concert Page, and Edit Concert Page.
 
-The Home/Landing Page has concise instructions on what the application does and how to get started, as well as Sign Up and Log In forms for new users and existing users respectively. 
+The Home/Landing Page has brief instructions on what the application does and how to get started, as well as Sign Up and Log In forms for new users and existing users respectively. See below:
 
-The Concert Collection Page lists a user's concerts with details the user has saved. The top of the page has an "Add New Concert" button for easy access and each concert listed has an "Edit" button so that users can edit all fields as desired.
+![Screen Shot 2021-07-13 at 8 00 53 PM](https://user-images.githubusercontent.com/68669789/125540313-7f44c425-b402-453b-8b2e-9560eec979c2.png)
 
-The Add New Concert Page displays a form where a user can enter information about a concert, including the artist, venue, date, highlights, and notes. Only the artist and venue are required at first so that a user can quickly save a concert and return to it later to add details about date, highlights, and notes.
+The Concert Collection Page lists a user's concerts with details the user has saved. The top of the page has an "Add New Concert" button for easy access and each concert listed has an "Edit" button so that users can edit all fields as desired. See below:
 
-The Edit Concert Page displays a form where a user can update information about a concert that has been saved. The input fields auto-fill with the previously saved information so the user can make accurate edits where desired. At the bottom of the form, there is a "Delete" button that deletes the concert from the collection.
+![Screen Shot 2021-07-13 at 8 49 54 PM](https://user-images.githubusercontent.com/68669789/125543533-e874f7eb-ba28-45b9-97aa-13e8fe9b39f4.png)
+
+The Add New Concert Page displays a form where a user can enter information about a concert, including the artist, venue, date, highlights, and notes. Only the artist and venue are required so that a user can quickly save a concert and return to it later to add details about date, highlights, and notes. See below:
+
+![Screen Shot 2021-07-13 at 8 46 32 PM](https://user-images.githubusercontent.com/68669789/125543310-7125608e-22da-4e2c-849f-432ebca78034.png)
+
+The Edit Concert Page displays a form where a user can update information about a concert that has been saved. The input fields auto-fill with the previously saved information so the user can make accurate edits where desired. At the bottom of the form, there is a "Delete" button that deletes the concert from the collection. See below:
+
+![Screen Shot 2021-07-13 at 8 50 40 PM](https://user-images.githubusercontent.com/68669789/125543577-83217f8d-94e1-4549-bf3b-01132e3d0446.png)
 
 ## Process
 
