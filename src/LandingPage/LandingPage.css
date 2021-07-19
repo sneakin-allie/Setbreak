@@ -1,14 +1,12 @@
 .Landing-page h3 {
-    background-color: #380a3b;
-    color: #fd604e;
-    margin: 0px 0px 0px 0px;
+    margin: 0px;
     padding: 10px;
     font-family: Helvetica, sans-serif;
     text-align: center;
 }
 
 .Landing-page-p {
-    margin: 15px;
+    margin: 20px;
 }
 
 /* Groups & Items (Mobile first) */

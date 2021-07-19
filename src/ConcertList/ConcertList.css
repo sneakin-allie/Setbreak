@@ -1,6 +1,4 @@
 .Welcome-banner {
-    background-color: #380a3b;
-    color: #fd604e;
     margin: 0px 0px 0px 0px;
     padding: 10px 10px 5px 10px;
     font-family: Helvetica, sans-serif;
@@ -8,8 +6,6 @@
 }
 
 .Concert-collection-banner {
-    background-color: #380a3b;
-    color: #fd604e;
     margin: 0px 0px 0px 0px;
     padding: 5px 10px 10px 10px;
     font-family: Helvetica, sans-serif;

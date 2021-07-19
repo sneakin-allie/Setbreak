@@ -1,13 +1,37 @@
-.Header h1 {
+/* Responsive Layout (Mobile-first) */
+
+.Header {
+    background-image: url("../IMG_9269.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     font-family: Helvetica, sans-serif;
     text-align: center;
-    font-size: 48px;
+    padding: 50px;
+}
+
+.Header h1 {
+    color: turquoise;
+    text-shadow: 2px 2px coral;
+    font-size: 3em;
     margin: 10px;
 }
 
 .Header h2 {
-    font-family: Helvetica, sans-serif;
-    text-align: center;
-    font-size: 28px;
+    color: indigo;
+    text-shadow: 2px 2px coral;
+    font-size: 1.8em;
     margin: 10px;
+}
+
+/* Responsive Layout (Desktop) */
+
+@media all and (min-width: 800px) {
+    .Header h1 {
+        font-size: 3.5em;
+    }
+
+    .Header h2 {
+        font-size: 1em;
+    }
 }
