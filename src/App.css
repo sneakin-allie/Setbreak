@@ -1,6 +1,22 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
 body {
     margin: 0;
     padding: 0;
+    min-height: 100%;
+    position: relative;
+}
+
+.Footer {
+    color: white;
+    background-color: indigo;
+    width: 100%;
 }
 
 .App {
@@ -8,8 +24,6 @@ body {
     display: flex;
     flex-direction: column;
     background-color: khaki;
-    min-height: 100%;
-    min-width: 100vw;
 }
 
 .App > main {

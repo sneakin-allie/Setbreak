@@ -28,10 +28,6 @@
 
 @media all and (min-width: 800px) {
     .Header h1 {
-        font-size: 3.5em;
-    }
-
-    .Header h2 {
-        font-size: 1em;
+        overflow-wrap: break-word;
     }
 }
